@@ -16,13 +16,13 @@
 cmake_minimum_required(VERSION 3.6.1)
 cmake_policy(VERSION 3.6)
 
-
-include(cmake/HunterGate.cmake)
-HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.15.23.tar.gz"
-    SHA1 "ab53ab9ede1cba3b894ed9e17a26f091924f6d65"
-)
-
+if(ANDROID)
+    include(cmake/HunterGate.cmake)
+    HunterGate(
+        URL "https://github.com/ruslo/hunter/archive/v0.15.23.tar.gz"
+        SHA1 "ab53ab9ede1cba3b894ed9e17a26f091924f6d65"
+    )
+endif()
 
 
 ########################################################################################################################
@@ -153,4 +153,3 @@ cmut__install__install_config_directory(
 ########################################################################################################################
 
 #include(cmut_define_uninstall_target)
-
