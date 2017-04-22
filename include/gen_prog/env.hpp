@@ -137,7 +137,7 @@ T get_or_default(const char * name, const T & defaultValue)
     return defaultValue;
 }
 
-inline bool exist(const char * name)
+inline bool exists(const char * name)
 {
     if (nullptr == name)
     {
