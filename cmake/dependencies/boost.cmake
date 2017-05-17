@@ -8,22 +8,6 @@ set( gen_prog_Boost_COMPONENTS
     thread
     )
 
-
-if(DEFINED HUNTER_ENABLED)
-
-    hunter_add_package(
-        Boost
-        COMPONENTS
-            ${gen_prog_Boost_COMPONENTS}
-        )
-
-    if(HUNTER_ENABLED)
-        set(FIND_PACKAGE_MODE CONFIG)
-    endif()
-
-endif()
-
-
 find_package(
     Boost
         ${gen_prog_Boost_VERSION}
