@@ -17,8 +17,8 @@ namespace thread {
 class asynchronous_operation_guard
 {
 public:
-    asynchronous_operation_guard() : _enabled(true), _running(false) {}
-    asynchronous_operation_guard(bool enabled, bool running) : _enabled(enabled), _running(running) {}
+    inline asynchronous_operation_guard();
+    inline asynchronous_operation_guard(bool enabled, bool running);
 
     asynchronous_operation_guard(const asynchronous_operation_guard &) = delete;
     asynchronous_operation_guard(asynchronous_operation_guard &&) = delete;
@@ -92,7 +92,21 @@ private:
 //--------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------//
 
+asynchronous_operation_guard::asynchronous_operation_guard()
+{
+    _enabled.store(true);
+    _running.store(false);
+}
 
+//--------------------------------------------------------------------------------------------------------------------//
+
+asynchronous_operation_guard::asynchronous_operation_guard(bool enabled, bool running)
+{
+    _enabled.store(enabled);
+    _running.store(running);
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 asynchronous_operation_guard::~asynchronous_operation_guard()
 {
