@@ -14,15 +14,41 @@ namespace gen_prog {
 namespace thread {
 
 
+
+///
+/// \brief The asynchronous_operation_guard class is a conveniant class to implement asynchronous operation.
+///
+/// When you implement a class that run asynchronous operation, and you want to wait the end of the operation
+/// to delete an instance of this class, asynchronous_operation_guard provide methods to do this.
+/// And like the std::thread, asynchronous_operation_guard call std::terminate if it is delete if the operation
+/// is still running.
+///
+/// asynchronous_operation_guard only store state (is_enable, is_running) of the async operation. This is your
+/// responsability to maintaine this state up to date.
+///
+/// asynchronous_operation_guard allow you to wait the end of an operation, optionnaly with a timeout.
+///
 class asynchronous_operation_guard
 {
 public:
+    ///
+    /// \brief asynchronous_operation_guard create this class with "is_enable" to true and "is_running" to false
+    ///
     inline asynchronous_operation_guard();
+
+    ///
+    /// \brief asynchronous_operation_guard create this class
+    /// \param is_enable set the is_enable state
+    /// \param is_running set the is_running state
+    ///
     inline asynchronous_operation_guard(bool enabled, bool running);
 
     asynchronous_operation_guard(const asynchronous_operation_guard &) = delete;
     asynchronous_operation_guard(asynchronous_operation_guard &&) = delete;
 
+    ///
+    /// \brief ~asynchronous_operation_guard call std::terminate if the async operation is still running
+    ///
     inline ~asynchronous_operation_guard();
 
 
@@ -39,10 +65,17 @@ public:
     inline void disable();
 
     ///
-    /// \brief enabled check the enable status
+    /// \brief is_enable check the enable status
     /// \return true if enable, false otherwise
     ///
-    inline bool enabled() const;
+    inline bool is_enable() const;
+    [[deprecated]] inline bool enabled() const;
+
+    ///
+    /// \brief disable check the enable status
+    /// \return true if not enable, false otherwise
+    ///
+    inline bool is_disable() const;
 
 
 
@@ -58,14 +91,15 @@ public:
     inline void end();
 
     ///
-    /// \brief running check if this has begin, and not yet end
+    /// \brief is_running check if this has begin, and not yet end
     /// \return true if running, false otherwise
     ///
-    inline bool running() const;
+    [[deprecated]] inline bool running() const;
+    inline bool is_running() const;
 
 
     ///
-    /// \brief wait_end sleep during "time" while this is running
+    /// \brief wait_end sleep during "time" intervale while this is running
     ///
     template<typename Rep, typename Period>
     void wait_end(const std::chrono::duration<Rep, Period> & time);
@@ -82,8 +116,8 @@ private:
 
 
 private:
-    std::atomic_bool _enabled;
-    std::atomic_bool _running;
+    std::atomic_bool _is_enabled;
+    std::atomic_bool _is_running;
 };
 
 
@@ -94,23 +128,23 @@ private:
 
 asynchronous_operation_guard::asynchronous_operation_guard()
 {
-    _enabled.store(true);
-    _running.store(false);
+    _is_enabled.store(true);
+    _is_running.store(false);
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
 asynchronous_operation_guard::asynchronous_operation_guard(bool enabled, bool running)
 {
-    _enabled.store(enabled);
-    _running.store(running);
+    _is_enabled.store(enabled);
+    _is_running.store(running);
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
 asynchronous_operation_guard::~asynchronous_operation_guard()
 {
-    if (running())
+    if (is_running())
     {
         std::terminate();
     }
@@ -118,38 +152,40 @@ asynchronous_operation_guard::~asynchronous_operation_guard()
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-void asynchronous_operation_guard::enable() { _enabled.store(true); }
+void asynchronous_operation_guard::enable() { _is_enabled.store(true); }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-void asynchronous_operation_guard::disable()   { _enabled.store(false); }
+void asynchronous_operation_guard::disable()   { _is_enabled.store(false); }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-bool asynchronous_operation_guard::enabled() const { return _enabled.load(); }
+bool asynchronous_operation_guard::enabled() const { return _is_enabled.load(); }
+bool asynchronous_operation_guard::is_enable() const { return _is_enabled.load(); }
+bool asynchronous_operation_guard::is_disable() const { return ! _is_enabled.load(); }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
 void asynchronous_operation_guard::begin()
 {
     throw_if_not_enable();
-    _running.store(true);
+    _is_running.store(true);
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-void asynchronous_operation_guard::end()   { _running.store(false); }
+void asynchronous_operation_guard::end()   { _is_running.store(false); }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-bool asynchronous_operation_guard::running() const { return _running.load(); }
+bool asynchronous_operation_guard::is_running() const { return _is_running.load(); }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
 template<typename Rep, typename Period>
 void asynchronous_operation_guard::wait_end(const std::chrono::duration<Rep, Period> & time)
 {
-    while(running()) { std::this_thread::sleep_for(time); }
+    while(is_running()) { std::this_thread::sleep_for(time); }
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -157,15 +193,17 @@ void asynchronous_operation_guard::wait_end(const std::chrono::duration<Rep, Per
 template<typename Rep, typename Period>
 bool asynchronous_operation_guard::wait(const std::chrono::duration<Rep, Period> & time)
 {
-    if (running()) { std::this_thread::sleep_for(time); }
-    return running();
+    if (! is_running()) { return false; }
+
+    std::this_thread::sleep_for(time);
+    return is_running();
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
 
 void asynchronous_operation_guard::throw_if_not_enable() const
 {
-    if ( ! enabled() )
+    if ( ! is_enable() )
     {
         throw std::runtime_error("async operation is disable.");
     }
