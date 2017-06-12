@@ -1,5 +1,5 @@
 set( gen_prog_Boost_VERSION
-    1.61.0
+    1.64.0
     )
 
 set( gen_prog_Boost_COMPONENTS
@@ -14,5 +14,4 @@ find_package(
     REQUIRED
     COMPONENTS
         ${gen_prog_Boost_COMPONENTS}
-    ${FIND_PACKAGE_MODE}
     )
