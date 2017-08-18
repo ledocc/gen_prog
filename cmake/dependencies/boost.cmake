@@ -8,6 +8,10 @@ set( gen_prog_Boost_COMPONENTS
     thread
     )
 
+if (ANDROID)
+    set(Boost_USE_STATIC_LIBS        ON)
+endif()
+
 find_package(
     Boost
         ${gen_prog_Boost_VERSION}
