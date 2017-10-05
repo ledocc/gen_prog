@@ -96,6 +96,7 @@ public:
     ///
     [[deprecated]] inline bool running() const;
     inline bool is_running() const;
+    inline bool is_done() const;
 
 
     ///
