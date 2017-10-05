@@ -12,29 +12,23 @@ namespace gen_prog {
 namespace async {
 
 ///
-/// \brief The operation_guard class is a conveniant class to implement asynchronous operation.
+/// \brief The operation_guard class is a conveniant class to implement asynchronous operation guard.
 ///
 /// An operation is a short time task.
+/// When operation begin, user set operation_guard::running to true.
+/// When operation end, user set operation_guard::running to false.
 ///
+/// This guard prevent user to delete an instance of operation_guard
+/// if the running flag is not set to false by calling std::terminate.
 ///
-/// operation_guard have a "running" state that define if the task is "work in progress". This the user responsability
-/// to keep this state up to date.
-///
-/// MAIN FEATURE :
-/// when operation_guard destructor is call, if the "running" state is true a call to std::terminate,
-///
-///
-
-
-
 
 class operation_guard
 {
 public:
-    struct set_running_guard
+    struct running_guard
     {
-        set_running_guard(operation_guard & op) : _op(op) {}
-        ~set_running_guard() { _op.set_running(false); }
+        running_guard(operation_guard & op) : _op(op) {}
+        ~running_guard() { _op.set_running(false); }
 
     private:
         operation_guard & _op;

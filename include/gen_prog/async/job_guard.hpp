@@ -17,7 +17,7 @@ namespace async {
 ///
 /// \brief The job_guard class is a conveniant class to implement asynchronous job.
 ///
-/// A job is an long time task that can be enable or disable.
+/// A job is an long time task that can be enabled/disabled.
 ///
 ///
 /// operation_guard have a "running" state that define if the task is "work in progress". This the user responsability
@@ -210,10 +210,9 @@ bool job_guard::wait_for(const std::chrono::duration<Rep, Period> & time)
 
 void job_guard::throw_if_not_enable() const
 {
-    if ( ! is_enable() )
-    {
-        throw std::runtime_error("async job is disable.");
-    }
+    if ( is_enable() ) { return; }
+
+    throw std::runtime_error("async job is disable.");
 }
 
 } // namespace async
