@@ -11,7 +11,7 @@
 
 
 
-namespace gp
+namespace gen_prog
 {
 namespace factory
 {
@@ -45,9 +45,10 @@ private:
     id_type _id;
 };
 
-
 } // namespace factory
-} // namespace gp
+} // namespace gen_prog
+
+namespace gp = gen_prog;
 
 #endif // ** GEN_PROG__FACTORY__PROXY_HPP_ ** //
 // End of file

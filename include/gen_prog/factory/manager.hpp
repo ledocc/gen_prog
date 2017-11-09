@@ -10,7 +10,7 @@
 
 
 
-namespace gp {
+namespace gen_prog {
 namespace factory {
 
 template <typename T>
@@ -40,6 +40,11 @@ public:
         if (it != _map.end()) _map.erase(it);
     }
 
+    bool has(const id_type & id) const
+    {
+        return (_map.find(id) != _map.end());
+    }
+
     template <typename... Args>
     result_type create(const id_type & id, Args&&... args) const
     { return get(id)(std::forward<Args>(args)...); }
@@ -53,14 +58,15 @@ private:
         else return factory_prototype();
     }
 
+
 private:
     factory_map _map;
 };
 
-
 }  // namespace factory
-}  // namespace gp
+}  // namespace gen_prog
 
+namespace gp = gen_prog;
 
 #endif // ** GEN_PROG__FACTORY__MANAGER_HPP_ ** //
 // End of file
