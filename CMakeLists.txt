@@ -17,7 +17,7 @@ cmake_minimum_required(VERSION 3.6.1)
 cmake_policy(VERSION 3.6)
 
 
-
+set(CMUT_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut")
 ########################################################################################################################
 ########################################################################################################################
 #
@@ -26,7 +26,7 @@ cmake_policy(VERSION 3.6)
 ########################################################################################################################
 ########################################################################################################################
 project(gen_prog VERSION 0.2.0)
-include("$ENV{CMUT_DIR}/cmut__config.cmake")
+include("${CMUT_DIR}/cmut__config.cmake")
 cmut__config__log_project_begin()
 
 
@@ -44,7 +44,7 @@ string(TIMESTAMP ${PROJECT_NAME}_BUILD_TIME "%Y-%m-%d %H:%M:%S UTC" UTC)
 ########################################################################################################################
 list(INSERT CMAKE_MODULE_PATH 0
     ${CMAKE_HOME_DIRECTORY}/cmake
-    $ENV{CMUT_DIR}
+    ${CMUT_DIR}
 )
 
 # cmut's module

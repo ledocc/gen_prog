@@ -1,0 +1,3 @@
+[submodule "cmake/tools/cmut"]
+	path = cmake/tools/cmut
+	url = https://github.com/ledocc/cmut.git
