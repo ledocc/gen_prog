@@ -2,8 +2,11 @@
 #define gen_prog__algorithm__set_symetric_difference_hpp
 
 
-#include <utility>
+
 #include <algorithm>
+#include <functional>
+#include <utility>
+
 
 
 namespace gen_prog {
