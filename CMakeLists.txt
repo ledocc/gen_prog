@@ -25,7 +25,7 @@ set(CMUT_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut")
 #
 ########################################################################################################################
 ########################################################################################################################
-project(gen_prog VERSION 0.2.0)
+project(gen_prog VERSION 0.3.0)
 include("${CMUT_DIR}/cmut__config.cmake")
 cmut__config__log_project_begin()
 
