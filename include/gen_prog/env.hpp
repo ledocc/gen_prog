@@ -86,13 +86,13 @@ struct ErrorConvert
 template <typename OutputT>
 struct convert_dispatcher
 {
-    using type = std::conditional_t< std::is_arithmetic<OutputT>::value,
+    using type = typename std::conditional< std::is_arithmetic<OutputT>::value,
                                      StringToArithmeticConvert<OutputT>,
-                                     std::conditional_t< std::is_same<OutputT, std::string>::value,
+                                     typename std::conditional< std::is_same<OutputT, std::string>::value,
                                                          StringPassThrough,
                                                          ErrorConvert
-                                                       >
-                                   >;
+                                                       >::type
+                                   >::type;
 };
 
 
