@@ -26,7 +26,7 @@ set(CMUT_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut")
 ########################################################################################################################
 ########################################################################################################################
 project(gen_prog VERSION 0.3.0)
-include("${CMUT_DIR}/cmut__config.cmake")
+include("${CMUT_DIR}/cmut.cmake")
 cmut__config__log_project_begin()
 
 
@@ -51,11 +51,6 @@ list(INSERT CMAKE_MODULE_PATH 0
 include( cmut_define_output_dirs )
 include( cmut_define_install_dirs )
 include( cmut_get_git_info )
-
-include( cmut__build )
-include( cmut__install )
-include( cmut__config )
-include( cmut__target )
 
 
 cmut__config__option_developer_mode()
