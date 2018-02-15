@@ -114,11 +114,10 @@ if(DOXYGEN_FOUND)
 #    add_subdirectory(doc)
 endif()
 
-#include(CTest)
-#if(BUILD_TESTING)
-#    enable_testing()
-#    add_subdirectory(test)
-#endif()
+include(CTest)
+if(BUILD_TESTING)
+    add_subdirectory(test)
+endif()
 
 
 

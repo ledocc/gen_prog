@@ -1,5 +1,5 @@
-#ifndef gen_prog__algorithm__set_symetric_difference_hpp
-#define gen_prog__algorithm__set_symetric_difference_hpp
+#ifndef gen_prog__algorithm__set_symmetric_difference_hpp
+#define gen_prog__algorithm__set_symmetric_difference_hpp
 
 
 
@@ -14,13 +14,14 @@ namespace algorithm {
 
 template<class InputIt1,  class InputIt2,
          class OutputIt1, class OutputIt2,
-         class Compare>
+         class Compare1 = std::less<typename InputIt1::value_type>,
+         class Compare2 = std::less<typename InputIt2::value_type> >
 std::pair<OutputIt1, OutputIt2>
-set_symetric_difference( InputIt1 first1,    InputIt1 last1,
-                         InputIt2 first2,    InputIt2 last2,
-                         OutputIt1 d1_first, OutputIt2 d2_first,
-                         Compare comp1 = std::less<InputIt1>(),
-                         Compare comp2 = std::less<InputIt2>())
+set_symmetric_difference( InputIt1 first1,    InputIt1 last1,
+                          InputIt2 first2,    InputIt2 last2,
+                          OutputIt1 d1_first, OutputIt2 d2_first,
+                          Compare1 comp1 = Compare1(),
+                          Compare2 comp2 = Compare2())
 {
     while (first1 != last1)
     {
@@ -56,4 +57,4 @@ set_symetric_difference( InputIt1 first1,    InputIt1 last1,
 } // namespace algorithm
 } // namespace gen_prog
 
-#endif // gen_prog__algorithm__set_symetric_difference_hpp
+#endif // gen_prog__algorithm__set_symmetric_difference_hpp
