@@ -132,7 +132,8 @@ endif()
 cmut__install__install_config_and_version()
 cmut__install__install_config_directory(
     DIRECTORY       "cmake/dependencies"
-    DESTINATION .)
+    DESTINATION     "dependencies/"
+)
 
 
 ########################################################################################################################
