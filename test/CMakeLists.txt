@@ -8,7 +8,7 @@
 
 
 
-include(cmut_boost_test)
+include("${PROJECT_SOURCE_DIR}/cmake/tools/cmut/cmut_boost_test.cmake")
 
 cmut_test__find_boost_test(1.64.0)
 cmut_test__find_turtle()
@@ -18,11 +18,7 @@ if(NOT Boost_UNIT_TEST_FRAMEWORK_FOUND OR NOT TURTLE_FOUND)
 endif()
 
 
-include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/include" )
-
 cmut__build__define_output_dir("${PROJECT_BINARY_DIR}/test")
-
-
 
 
 link_libraries(gen_prog)
