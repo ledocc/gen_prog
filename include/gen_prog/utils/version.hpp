@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+#include <boost/operators.hpp>
+
 
 
 namespace gen_prog {
@@ -13,7 +15,7 @@ namespace utils {
 /// simple_version template with major, minor, patch value.
 
 template < typename T >
-class simple_version
+class simple_version : boost::totally_ordered< simple_version< T > >
 {
 public:
     using value_type = T;
@@ -26,6 +28,10 @@ public:
         , _minor( minor )
         , _patch( patch )
     {}
+
+
+    bool operator==( const simple_version & other ) const;
+    bool operator<( const simple_version & other ) const;
 
 
     value_type getMajor() const { return _major; }
@@ -50,6 +56,28 @@ private:
     value_type _minor = 0;
     value_type _patch = 0;
 };
+
+  //--------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------//
+
+template < typename T >
+bool simple_version<T>::operator==( const simple_version & other ) const
+{
+    return ( _major == other._major ) && ( _minor == other._minor ) && ( _patch == other._patch );
+}
+
+template < typename T >
+bool simple_version<T>::operator<( const simple_version & other ) const
+{
+    if ( _major != other._major ) { return _major < other._major; }
+    if ( _minor != other._minor ) { return _minor < other._minor; }
+    if ( _patch != other._patch ) { return _patch < other._patch; }
+
+    return false;
+}
+
+
 
 //--------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------//
