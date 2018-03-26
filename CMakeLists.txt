@@ -17,7 +17,7 @@ cmake_minimum_required(VERSION 3.6.1)
 cmake_policy(VERSION 3.6)
 
 
-set(CMUT_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut")
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
 ########################################################################################################################
 ########################################################################################################################
 #
@@ -25,13 +25,10 @@ set(CMUT_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut")
 #
 ########################################################################################################################
 ########################################################################################################################
-project(gen_prog VERSION 0.3.0)
-include("${CMUT_DIR}/cmut__config.cmake")
+project(gen_prog)
 cmut__config__log_project_begin()
-
-
-string(TIMESTAMP ${PROJECT_NAME}_BUILD_TIME "%Y-%m-%d %H:%M:%S UTC" UTC)
-
+cmut__utils__set_project_version_from_file("${CMAKE_CURRENT_LIST_DIR}/version.txt")
+cmut__utils__get_build_time(${PROJECT_NAME}_BUILD_TIME)
 
 
 
@@ -44,21 +41,19 @@ string(TIMESTAMP ${PROJECT_NAME}_BUILD_TIME "%Y-%m-%d %H:%M:%S UTC" UTC)
 ########################################################################################################################
 list(INSERT CMAKE_MODULE_PATH 0
     ${CMAKE_HOME_DIRECTORY}/cmake
-    ${CMUT_DIR}
 )
 
 # cmut's module
-include( cmut_define_output_dirs )
-include( cmut_define_install_dirs )
-include( cmut_get_git_info )
-
-include( cmut__build )
-include( cmut__install )
-include( cmut__config )
-include( cmut__target )
+include( "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut_get_git_info.cmake" )
 
 
 cmut__config__option_developer_mode()
+cmut__config__option_ccache(ON)
+cmut__config__option_clang_tidy(OFF)
+cmut__config__option_cppcheck(OFF)
+cmut__config__option_include_what_you_use(OFF)
+
+cmut__config__default_build_type(Release)
 
 
 
@@ -84,7 +79,8 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/dependencies/include_all.cmake")
 set(CMAKE_DEBUG_POSTFIX "d")
 
 # define CMAKE_*_OUTPUT_DIRECTORY
-cmut_define_output_dirs()
+cmut__build__define_output_dir()
+
 # add option to enable build with all cpu's core when use Visual Studio or nmake
 cmut__build__msvc__option_use_mp()
 
@@ -92,7 +88,7 @@ cmut__build__msvc__option_use_mp()
 cmut__build__enable_cxx_standard(14)
 
 # enable warning
-cmut__build__enable_warning()
+cmut__build__enable_warning(AGGRESSIVE)
 
 # use RUNPATH instead of depreciated RPATH
 cmut__build__enable_runpath_link()
@@ -119,11 +115,10 @@ if(DOXYGEN_FOUND)
 #    add_subdirectory(doc)
 endif()
 
-#include(CTest)
-#if(BUILD_TESTING)
-#    enable_testing()
-#    add_subdirectory(test)
-#endif()
+include(CTest)
+if(BUILD_TESTING)
+    add_subdirectory(test)
+endif()
 
 
 
@@ -138,7 +133,8 @@ endif()
 cmut__install__install_config_and_version()
 cmut__install__install_config_directory(
     DIRECTORY       "cmake/dependencies"
-    DESTINATION .)
+    DESTINATION     "dependencies/"
+)
 
 
 ########################################################################################################################

@@ -5,4 +5,24 @@
 #    (See accompanying file LICENSE_1_0.txt or copy at
 #          http://www.boost.org/LICENSE_1_0.txt)
 
-add_subdirectory(ref_ptr)
+
+
+
+include("${PROJECT_SOURCE_DIR}/cmake/tools/cmut/cmut_boost_test.cmake")
+
+cmut_test__find_boost_test(1.64.0)
+cmut_test__find_turtle()
+
+if(NOT Boost_UNIT_TEST_FRAMEWORK_FOUND OR NOT TURTLE_FOUND)
+    return()
+endif()
+
+
+cmut__build__define_output_dir("${PROJECT_BINARY_DIR}/test")
+
+
+link_libraries(gen_prog)
+
+
+add_subdirectory(algorithm)
+add_subdirectory(utils)
