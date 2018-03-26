@@ -24,5 +24,9 @@ cmut__build__define_output_dir("${PROJECT_BINARY_DIR}/test")
 
 
 
+
+link_libraries(gen_prog)
+
+
 add_subdirectory(algorithm)
-#add_subdirectory(ref_ptr)
+add_subdirectory(utils)

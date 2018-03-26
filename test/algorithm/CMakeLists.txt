@@ -1,5 +1,4 @@
 
-link_libraries(gen_prog)
 
 set(TEST_SRC
     set_symetric_difference.test.cpp
