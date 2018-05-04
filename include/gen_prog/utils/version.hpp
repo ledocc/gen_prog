@@ -90,6 +90,7 @@ std::ostream & operator<<( std::ostream & os, const simple_version< T > & versio
     using is_uchar = std::is_same< T, unsigned char >;
 
     // clang-format off
+#if __cplusplus >= 201402L
     using output_type = std::conditional_t< is_char::value,
                                                 short,
                                                 std::conditional_t< is_uchar::value,
@@ -97,6 +98,15 @@ std::ostream & operator<<( std::ostream & os, const simple_version< T > & versio
                                                                         T
                                                                   >
                                           >;
+#else
+    using output_type = typename std::conditional< is_char::value,
+                                                   short,
+                                                   typename std::conditional< is_uchar::value,
+                                                                              unsigned short,
+                                                                              T
+                                                                            >::type
+                                                 >::type;
+#endif
     // clang-format on
 
 
