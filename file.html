@@ -1,0 +1,783 @@
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.selected {
+    border: 3px solid black;
+}
+</style>
+<script type="text/javascript">
+    function handleEvent(id) {
+        selected = document.getElementsByClassName('selected');
+        if (selected[0]) selected[0].className = '';
+        cell = document.getElementById(id);
+        cell.className = 'selected';
+        elem = document.getElementById('SelectedPackage');
+        elem.innerHTML = id;
+    }
+
+</script>
+<h1>boost/1.67.0@conan/stable</h1>
+    
+<h2>'conan-center':</h2>
+<table>
+<tr>
+<th></th>
+<th>NO options</th>
+<th>x86 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=False<br>without_atomic=False</th>
+<th>x86 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=True<br>without_atomic=False</th>
+<th>x86 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=False<br>without_atomic=False</th>
+<th>x86 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=True<br>without_atomic=False</th>
+<th>x86 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=False<br>without_atomic=False</th>
+<th>x86_64 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=True<br>without_atomic=False</th>
+<th>x86_64 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Debug<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=True<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=False<br>without_atomic=False</th>
+<th>x86_64 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_contract=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>without_filesystem=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>without_graph_parallel=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>header_only=False<br>without_python=True<br>without_container=False<br>shared=True<br>without_atomic=False</th>
+<th>x86_64 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=False<br>without_container=False<br>without_atomic=False</th>
+<th>x86_64 Release<br>without_log=False<br>without_test=False<br>without_graph=False<br>without_type_erasure=False<br>without_wave=False<br>without_signals=False<br>without_mpi=False<br>without_system=False<br>without_date_time=False<br>without_thread=False<br>without_iostreams=False<br>without_locale=False<br>without_coroutine=False<br>without_context=False<br>fPIC=False<br>without_serialization=False<br>without_random=False<br>skip_lib_rename=False<br>header_only=False<br>without_stacktrace=False<br>without_fiber=False<br>without_regex=False<br>without_program_options=False<br>without_timer=False<br>without_exception=False<br>without_math=False<br>without_chrono=False<br>without_filesystem=False<br>without_python=True<br>without_graph_parallel=False<br>shared=True<br>without_container=False<br>without_atomic=False</th>
+</tr>
+<tr>
+<td>Linux gcc 4.9 (libstdc++)</td>
+<td></td>
+<td bgcolor=#00ff00 id="0676b08c741a7c4a4d1dc6a370cf6ca2e1b4cfa7" onclick=handleEvent("0676b08c741a7c4a4d1dc6a370cf6ca2e1b4cfa7")></td>
+<td bgcolor=#00ff00 id="febe8c70379246b3afbf0281b3e083776977ce07" onclick=handleEvent("febe8c70379246b3afbf0281b3e083776977ce07")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="760410a90e9e488a5686cc3527bd0333d3a4d323" onclick=handleEvent("760410a90e9e488a5686cc3527bd0333d3a4d323")></td>
+<td bgcolor=#ffff00 id="de01ed7a9cfc7fa413f350ed52af4a7c41693e5b" onclick=handleEvent("de01ed7a9cfc7fa413f350ed52af4a7c41693e5b")></td>
+<td bgcolor=#00ff00 id="f60020e8dc0907c4da5e5a7d36e534bd8df98e6c" onclick=handleEvent("f60020e8dc0907c4da5e5a7d36e534bd8df98e6c")></td>
+<td bgcolor=#ffff00 id="09e12330392dc0de710d69ca93e2acfd2c08b287" onclick=handleEvent("09e12330392dc0de710d69ca93e2acfd2c08b287")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="ec45c605ef99fcac9225d221d17661bca9adbf54" onclick=handleEvent("ec45c605ef99fcac9225d221d17661bca9adbf54")></td>
+<td bgcolor=#ffff00 id="b2e4d4a7e76e057fe63da0c7b97b47c10a239b22" onclick=handleEvent("b2e4d4a7e76e057fe63da0c7b97b47c10a239b22")></td>
+<td bgcolor=#00ff00 id="c14a0f61b4b49f40afbbea4ea74bd010efc6c044" onclick=handleEvent("c14a0f61b4b49f40afbbea4ea74bd010efc6c044")></td>
+<td bgcolor=#00ff00 id="466262bfdae1419fb887db8abb3174bfb540ef67" onclick=handleEvent("466262bfdae1419fb887db8abb3174bfb540ef67")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="c9e73675a7259ce54e7bfc47b0b9dc995694611c" onclick=handleEvent("c9e73675a7259ce54e7bfc47b0b9dc995694611c")></td>
+<td bgcolor=#ffff00 id="7c8be6d80370d32ebbcfe6d96fd186cb9e479683" onclick=handleEvent("7c8be6d80370d32ebbcfe6d96fd186cb9e479683")></td>
+<td bgcolor=#00ff00 id="ad3b931b70551e9cebd31dd75253f39b23e8b902" onclick=handleEvent("ad3b931b70551e9cebd31dd75253f39b23e8b902")></td>
+<td bgcolor=#00ff00 id="33dc6a12ef268df33e61cfd2a39959f89576a22b" onclick=handleEvent("33dc6a12ef268df33e61cfd2a39959f89576a22b")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="40efe0efdfe5fcd5cc477e00e713b132183d521c" onclick=handleEvent("40efe0efdfe5fcd5cc477e00e713b132183d521c")></td>
+<td bgcolor=#ffff00 id="b1548f72dd57804813770d52ed8ef1cba711f4e7" onclick=handleEvent("b1548f72dd57804813770d52ed8ef1cba711f4e7")></td>
+</tr>
+<tr>
+<td>Linux gcc 5 (libstdc++)</td>
+<td></td>
+<td bgcolor=#00ff00 id="cf25c460e4a2b695e6db4a0e8f9d111796afa6db" onclick=handleEvent("cf25c460e4a2b695e6db4a0e8f9d111796afa6db")></td>
+<td bgcolor=#ffff00 id="58ed5a286c95f9126c9ac7f0175503f419c8241f" onclick=handleEvent("58ed5a286c95f9126c9ac7f0175503f419c8241f")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="66fe0a156019a42d489b1da6d214ced799188e14" onclick=handleEvent("66fe0a156019a42d489b1da6d214ced799188e14")></td>
+<td bgcolor=#ffff00 id="15691fbe7e9b167a0d650448a2e8366982df063b" onclick=handleEvent("15691fbe7e9b167a0d650448a2e8366982df063b")></td>
+<td bgcolor=#00ff00 id="df9ea205ac383b4343949f3852479b50dfc36b43" onclick=handleEvent("df9ea205ac383b4343949f3852479b50dfc36b43")></td>
+<td bgcolor=#00ff00 id="8eebdd61952be903274afb8a71c2850969f03ff8" onclick=handleEvent("8eebdd61952be903274afb8a71c2850969f03ff8")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="eb0b62fd43328ccbc3e519631afc121a3c212086" onclick=handleEvent("eb0b62fd43328ccbc3e519631afc121a3c212086")></td>
+<td bgcolor=#ffff00 id="16ae9d4cc7c81c392583a5fbf45d1f57aadf6be8" onclick=handleEvent("16ae9d4cc7c81c392583a5fbf45d1f57aadf6be8")></td>
+<td bgcolor=#00ff00 id="6044837b85a9c189a94a451b5187f92f01a354bf" onclick=handleEvent("6044837b85a9c189a94a451b5187f92f01a354bf")></td>
+<td bgcolor=#00ff00 id="31a8467e9e4c342ee77be7a48ae70cf0ff201d84" onclick=handleEvent("31a8467e9e4c342ee77be7a48ae70cf0ff201d84")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="aaa4a55cd8ca8aeb536212f1e13377cefc2eb8ad" onclick=handleEvent("aaa4a55cd8ca8aeb536212f1e13377cefc2eb8ad")></td>
+<td bgcolor=#ffff00 id="8ce0d2608114c737b225689414dc2e2ccf4e57ed" onclick=handleEvent("8ce0d2608114c737b225689414dc2e2ccf4e57ed")></td>
+<td bgcolor=#ffff00 id="90af74083fbeb14d00b9d07cb711a644fb96df2a" onclick=handleEvent("90af74083fbeb14d00b9d07cb711a644fb96df2a")></td>
+<td bgcolor=#00ff00 id="f066493f431532b6df321000e548524d8fa6f45f" onclick=handleEvent("f066493f431532b6df321000e548524d8fa6f45f")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="eacfdb5f448bfd89f0b2950fb6b7a79e44c7ea08" onclick=handleEvent("eacfdb5f448bfd89f0b2950fb6b7a79e44c7ea08")></td>
+<td bgcolor=#ffff00 id="e6c87098b615cce43f04083ecdd8ba45fcc8b999" onclick=handleEvent("e6c87098b615cce43f04083ecdd8ba45fcc8b999")></td>
+</tr>
+<tr>
+<td>Linux gcc 5 (libstdc++11)</td>
+<td></td>
+<td bgcolor=#00ff00 id="07d05529015b636d4dab70c0946811f86f22951c" onclick=handleEvent("07d05529015b636d4dab70c0946811f86f22951c")></td>
+<td bgcolor=#00ff00 id="28e78ad33b1466cb6e525f2cd723978284d82a72" onclick=handleEvent("28e78ad33b1466cb6e525f2cd723978284d82a72")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="2a67f1a28b52e3d3212cc72ec33cfc8f515ec726" onclick=handleEvent("2a67f1a28b52e3d3212cc72ec33cfc8f515ec726")></td>
+<td bgcolor=#ffff00 id="4316df4322a354e746aef4456a07be706bc74199" onclick=handleEvent("4316df4322a354e746aef4456a07be706bc74199")></td>
+<td bgcolor=#00ff00 id="3135f1f6e7ebdf8b358c22da98cf51d5a7e73312" onclick=handleEvent("3135f1f6e7ebdf8b358c22da98cf51d5a7e73312")></td>
+<td bgcolor=#00ff00 id="92a0d6f528422d269561218a16f8a4066b5d1df9" onclick=handleEvent("92a0d6f528422d269561218a16f8a4066b5d1df9")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="46df7b015ed40b44ba0cbdf0b0e405a96fea858c" onclick=handleEvent("46df7b015ed40b44ba0cbdf0b0e405a96fea858c")></td>
+<td bgcolor=#ffff00 id="702920d644dce8ab7260e457305d40f27f0ae6ec" onclick=handleEvent("702920d644dce8ab7260e457305d40f27f0ae6ec")></td>
+<td bgcolor=#00ff00 id="e307216b445f2c23342dae313ba76f4a21f59043" onclick=handleEvent("e307216b445f2c23342dae313ba76f4a21f59043")></td>
+<td bgcolor=#00ff00 id="cf89cef146c2883329f2feb9b232a8b6ebe25819" onclick=handleEvent("cf89cef146c2883329f2feb9b232a8b6ebe25819")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="4aeb421e97692287265bef5ce51c8f44a842e6f8" onclick=handleEvent("4aeb421e97692287265bef5ce51c8f44a842e6f8")></td>
+<td bgcolor=#ffff00 id="83d5fa96481518d8c30810892b4353c0e4b09fa2" onclick=handleEvent("83d5fa96481518d8c30810892b4353c0e4b09fa2")></td>
+<td bgcolor=#00ff00 id="e7fbb48079b43708cec2f8629423c95b32762f99" onclick=handleEvent("e7fbb48079b43708cec2f8629423c95b32762f99")></td>
+<td bgcolor=#00ff00 id="1dda960c639ec6bd5760b2fa6bb180d91cb383a8" onclick=handleEvent("1dda960c639ec6bd5760b2fa6bb180d91cb383a8")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="c41abe47a24cd5260f9918d17d3abbbaf680a292" onclick=handleEvent("c41abe47a24cd5260f9918d17d3abbbaf680a292")></td>
+<td bgcolor=#ffff00 id="e376b65a21cefc8d617cc789552f0a004a147949" onclick=handleEvent("e376b65a21cefc8d617cc789552f0a004a147949")></td>
+</tr>
+<tr>
+<td>Linux gcc 6 (libstdc++)</td>
+<td></td>
+<td bgcolor=#00ff00 id="ccfc1cf59508ec29a9b2acfa4d8f3288ac7aaec8" onclick=handleEvent("ccfc1cf59508ec29a9b2acfa4d8f3288ac7aaec8")></td>
+<td bgcolor=#00ff00 id="e8aa8b8daa0a849188de51049f66d46b565a7fe3" onclick=handleEvent("e8aa8b8daa0a849188de51049f66d46b565a7fe3")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="5d76f829bb2ff629e51a007643007fc7881d6da0" onclick=handleEvent("5d76f829bb2ff629e51a007643007fc7881d6da0")></td>
+<td bgcolor=#ffff00 id="b15cd4b6307f46da6bd133182812edbaee634906" onclick=handleEvent("b15cd4b6307f46da6bd133182812edbaee634906")></td>
+<td bgcolor=#00ff00 id="4e3e701ec0f86a84f985a6a2acddc667ea909019" onclick=handleEvent("4e3e701ec0f86a84f985a6a2acddc667ea909019")></td>
+<td bgcolor=#ffff00 id="027e0ea89b3ffc12f57ec61babe58aa7befef498" onclick=handleEvent("027e0ea89b3ffc12f57ec61babe58aa7befef498")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="5b47ebab832811680b2a9570b145b02af7258020" onclick=handleEvent("5b47ebab832811680b2a9570b145b02af7258020")></td>
+<td bgcolor=#ffff00 id="9cdfff1586ac9ba6d401b38ef6dbf3a93fdc9e54" onclick=handleEvent("9cdfff1586ac9ba6d401b38ef6dbf3a93fdc9e54")></td>
+<td bgcolor=#00ff00 id="3c98017d57498d93092846c7c0e0a46067a43d44" onclick=handleEvent("3c98017d57498d93092846c7c0e0a46067a43d44")></td>
+<td bgcolor=#00ff00 id="4ecba9d9dc15583fa60c7f576f382a88e1194939" onclick=handleEvent("4ecba9d9dc15583fa60c7f576f382a88e1194939")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="878925fd23abd6906da06393fb9afd7c6469a557" onclick=handleEvent("878925fd23abd6906da06393fb9afd7c6469a557")></td>
+<td bgcolor=#ffff00 id="a6c3416c47b2138c3a37e867374d3384b9c21f26" onclick=handleEvent("a6c3416c47b2138c3a37e867374d3384b9c21f26")></td>
+<td bgcolor=#ffff00 id="13daee7a47e302c72dad593b4ee2795702b91d30" onclick=handleEvent("13daee7a47e302c72dad593b4ee2795702b91d30")></td>
+<td bgcolor=#00ff00 id="6f8718b8dc6320ff2957d972de8cb197c8379faf" onclick=handleEvent("6f8718b8dc6320ff2957d972de8cb197c8379faf")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="1746e628e6a5e266b0a8c605d6751b6251f94e10" onclick=handleEvent("1746e628e6a5e266b0a8c605d6751b6251f94e10")></td>
+<td bgcolor=#ffff00 id="ec5dcd885af2f3df8fc05f86c4b94063e8868115" onclick=handleEvent("ec5dcd885af2f3df8fc05f86c4b94063e8868115")></td>
+</tr>
+<tr>
+<td>Linux gcc 6 (libstdc++11)</td>
+<td></td>
+<td bgcolor=#00ff00 id="882462b6927ea149fcd50960b208261941b96b0e" onclick=handleEvent("882462b6927ea149fcd50960b208261941b96b0e")></td>
+<td bgcolor=#00ff00 id="36ffb0441709d5c36c73434ddb3dc6e2f2d740e9" onclick=handleEvent("36ffb0441709d5c36c73434ddb3dc6e2f2d740e9")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="49b8b17fe82535018d13d37973d9521561fe4ba5" onclick=handleEvent("49b8b17fe82535018d13d37973d9521561fe4ba5")></td>
+<td bgcolor=#ffff00 id="1e540c2bc5dd949cc267cbd515814abe0744b4a3" onclick=handleEvent("1e540c2bc5dd949cc267cbd515814abe0744b4a3")></td>
+<td bgcolor=#00ff00 id="e44a67d294a2baa758184cb47171db7f75feb308" onclick=handleEvent("e44a67d294a2baa758184cb47171db7f75feb308")></td>
+<td bgcolor=#00ff00 id="16ee10467f4016669e91b25340c9d65d1dcd0f20" onclick=handleEvent("16ee10467f4016669e91b25340c9d65d1dcd0f20")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="a6a3bab48993c6ace060a98d0d460ddbe8e91e13" onclick=handleEvent("a6a3bab48993c6ace060a98d0d460ddbe8e91e13")></td>
+<td bgcolor=#ffff00 id="7c1d678701dfef7bb3484ea5b65d68ff44c7c15e" onclick=handleEvent("7c1d678701dfef7bb3484ea5b65d68ff44c7c15e")></td>
+<td bgcolor=#00ff00 id="a9b4a27fc27d792d9d62223c5ff3925336032a95" onclick=handleEvent("a9b4a27fc27d792d9d62223c5ff3925336032a95")></td>
+<td bgcolor=#00ff00 id="1af631258937539d1e3781226a071f9e45c75309" onclick=handleEvent("1af631258937539d1e3781226a071f9e45c75309")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="00d5bec68f1d2e5854a126df20762ac8de29f75d" onclick=handleEvent("00d5bec68f1d2e5854a126df20762ac8de29f75d")></td>
+<td bgcolor=#ffff00 id="760bd55b875b5d1dce859b456318a5650d45b0c6" onclick=handleEvent("760bd55b875b5d1dce859b456318a5650d45b0c6")></td>
+<td bgcolor=#ffff00 id="5d634e31fe4aa477deed6bdc82293625fa7818e8" onclick=handleEvent("5d634e31fe4aa477deed6bdc82293625fa7818e8")></td>
+<td bgcolor=#00ff00 id="fc59e0dfcc215b5a4e42c5d9c9812bed9b47485b" onclick=handleEvent("fc59e0dfcc215b5a4e42c5d9c9812bed9b47485b")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="54276874ce18a48211a50c6bd6746e1e277202b0" onclick=handleEvent("54276874ce18a48211a50c6bd6746e1e277202b0")></td>
+<td bgcolor=#ffff00 id="afcd15900f5a88e28464d1aae629ec372987a9a4" onclick=handleEvent("afcd15900f5a88e28464d1aae629ec372987a9a4")></td>
+</tr>
+<tr>
+<td>Linux gcc 7 (libstdc++)</td>
+<td></td>
+<td bgcolor=#00ff00 id="4dea6e30a8c6bf3cdc224765b009cf3cc38af098" onclick=handleEvent("4dea6e30a8c6bf3cdc224765b009cf3cc38af098")></td>
+<td bgcolor=#00ff00 id="a4a1cd1f003151bf76cb604c502a5c4afaf6d401" onclick=handleEvent("a4a1cd1f003151bf76cb604c502a5c4afaf6d401")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="c0786639647c95f685910919299323b003f4d90b" onclick=handleEvent("c0786639647c95f685910919299323b003f4d90b")></td>
+<td bgcolor=#ffff00 id="a98cf673bb67d8d1431977cbfed4ffbc5a68ba32" onclick=handleEvent("a98cf673bb67d8d1431977cbfed4ffbc5a68ba32")></td>
+<td bgcolor=#00ff00 id="f7e0645912daa14187dd66f28f2d6a8fc6e9f5ca" onclick=handleEvent("f7e0645912daa14187dd66f28f2d6a8fc6e9f5ca")></td>
+<td bgcolor=#00ff00 id="b15622edb9e6743c390754980da5691cf57dc6e1" onclick=handleEvent("b15622edb9e6743c390754980da5691cf57dc6e1")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="208a8a282bcf83d8011755f34ca448a8e6953857" onclick=handleEvent("208a8a282bcf83d8011755f34ca448a8e6953857")></td>
+<td bgcolor=#ffff00 id="61475fef6c0234b6d3819fd9759894949d4bb228" onclick=handleEvent("61475fef6c0234b6d3819fd9759894949d4bb228")></td>
+<td bgcolor=#00ff00 id="07bf35b328b244e0494c363fa36767111a1b9d08" onclick=handleEvent("07bf35b328b244e0494c363fa36767111a1b9d08")></td>
+<td bgcolor=#00ff00 id="25b5885cb3a749ee60bda49ccceb13a65b88b720" onclick=handleEvent("25b5885cb3a749ee60bda49ccceb13a65b88b720")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="0dd5796cc0d7705e4839b750d5afe5e4e5d87ed3" onclick=handleEvent("0dd5796cc0d7705e4839b750d5afe5e4e5d87ed3")></td>
+<td bgcolor=#ffff00 id="351a80ffdbbd2fbf217be9681c8720563650d889" onclick=handleEvent("351a80ffdbbd2fbf217be9681c8720563650d889")></td>
+<td bgcolor=#ffff00 id="d6cb600df9137cb7943d00f26e402be306584995" onclick=handleEvent("d6cb600df9137cb7943d00f26e402be306584995")></td>
+<td bgcolor=#ffff00 id="945c1520f9abd0f124ed71c3253519d982939c92" onclick=handleEvent("945c1520f9abd0f124ed71c3253519d982939c92")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="9d9b9e860e95dc0b4af2f6cc2021f07f4083ffb1" onclick=handleEvent("9d9b9e860e95dc0b4af2f6cc2021f07f4083ffb1")></td>
+<td bgcolor=#ffff00 id="dd1d3b081b6dfa09e222be0681a3538c73a972cd" onclick=handleEvent("dd1d3b081b6dfa09e222be0681a3538c73a972cd")></td>
+</tr>
+<tr>
+<td>Linux gcc 7 (libstdc++11)</td>
+<td></td>
+<td bgcolor=#00ff00 id="0052e020e2a6a07df59409f79b8847dbb8e79cac" onclick=handleEvent("0052e020e2a6a07df59409f79b8847dbb8e79cac")></td>
+<td bgcolor=#00ff00 id="8f1426848bc2b869b9396c2fbbd88f04484d6b03" onclick=handleEvent("8f1426848bc2b869b9396c2fbbd88f04484d6b03")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="7cf2840757091bd4277ee85c26b3fe902d345b58" onclick=handleEvent("7cf2840757091bd4277ee85c26b3fe902d345b58")></td>
+<td bgcolor=#ffff00 id="85011246aba52b93249fa2fa0c612f09be62fc0b" onclick=handleEvent("85011246aba52b93249fa2fa0c612f09be62fc0b")></td>
+<td bgcolor=#ffff00 id="49f030a04af03b400831468a3c463b52c8aaf94b" onclick=handleEvent("49f030a04af03b400831468a3c463b52c8aaf94b")></td>
+<td bgcolor=#00ff00 id="2d11a62d0092d2734843d7815b118c5438e30e62" onclick=handleEvent("2d11a62d0092d2734843d7815b118c5438e30e62")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="6e053c96a30ed13b20fed307f689db5bee4839c5" onclick=handleEvent("6e053c96a30ed13b20fed307f689db5bee4839c5")></td>
+<td bgcolor=#ffff00 id="14ce49151c778c7068fb38665106c1cac1a0c9d5" onclick=handleEvent("14ce49151c778c7068fb38665106c1cac1a0c9d5")></td>
+<td bgcolor=#00ff00 id="1124dca6ae937b7297b154408543b9bef46629d7" onclick=handleEvent("1124dca6ae937b7297b154408543b9bef46629d7")></td>
+<td bgcolor=#00ff00 id="bff87c131d90a6510cac46d643d17af71bc97818" onclick=handleEvent("bff87c131d90a6510cac46d643d17af71bc97818")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="12f35491e71e569b5b5f3da95549c60d84f62e80" onclick=handleEvent("12f35491e71e569b5b5f3da95549c60d84f62e80")></td>
+<td bgcolor=#ffff00 id="74524149d00eb4e8e404b47605cc7db68ca8e50e" onclick=handleEvent("74524149d00eb4e8e404b47605cc7db68ca8e50e")></td>
+<td bgcolor=#00ff00 id="f13b8707a96902c3870d1d62327acbc46ec72985" onclick=handleEvent("f13b8707a96902c3870d1d62327acbc46ec72985")></td>
+<td bgcolor=#00ff00 id="4fc35934bb2fc0403d39f55c7f2dd89893b0fb8d" onclick=handleEvent("4fc35934bb2fc0403d39f55c7f2dd89893b0fb8d")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="85896625e2a7fbba91e2bd283fa6fce2ba398554" onclick=handleEvent("85896625e2a7fbba91e2bd283fa6fce2ba398554")></td>
+<td bgcolor=#ffff00 id="22b2a736a01ab90ed00165ca142c73021a2bcc66" onclick=handleEvent("22b2a736a01ab90ed00165ca142c73021a2bcc66")></td>
+</tr>
+<tr>
+<td>Linux gcc 8 (libstdc++)</td>
+<td></td>
+<td bgcolor=#00ff00 id="0d6cf39c66b5f0fcf0ddaf5a5eb4944883cc4b8b" onclick=handleEvent("0d6cf39c66b5f0fcf0ddaf5a5eb4944883cc4b8b")></td>
+<td bgcolor=#00ff00 id="5a0aa6ae2bff5d3084a5d2a747d843c9ad7e3d52" onclick=handleEvent("5a0aa6ae2bff5d3084a5d2a747d843c9ad7e3d52")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="270682a2701877add2f6198f764d32619e9d2d82" onclick=handleEvent("270682a2701877add2f6198f764d32619e9d2d82")></td>
+<td bgcolor=#ffff00 id="72e6a29a1892efe165ff91703891cd463183e591" onclick=handleEvent("72e6a29a1892efe165ff91703891cd463183e591")></td>
+<td bgcolor=#00ff00 id="0c772569b4405b5bbfe0c1dc552c86ee453ec227" onclick=handleEvent("0c772569b4405b5bbfe0c1dc552c86ee453ec227")></td>
+<td bgcolor=#00ff00 id="3e95ad307393a18046a819e060543f97767b0bd5" onclick=handleEvent("3e95ad307393a18046a819e060543f97767b0bd5")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="756ccc6eafe1621fb6a44fb8a26bb9bea711c2df" onclick=handleEvent("756ccc6eafe1621fb6a44fb8a26bb9bea711c2df")></td>
+<td bgcolor=#ffff00 id="f4861d5f55fac01de253c53abf03a8c8f655f853" onclick=handleEvent("f4861d5f55fac01de253c53abf03a8c8f655f853")></td>
+<td bgcolor=#00ff00 id="214c44aa849ac0707d502cbadbbe1114ba3323d7" onclick=handleEvent("214c44aa849ac0707d502cbadbbe1114ba3323d7")></td>
+<td bgcolor=#00ff00 id="7bb171b67ce9ba51e103461c411a5d0653a698ff" onclick=handleEvent("7bb171b67ce9ba51e103461c411a5d0653a698ff")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="2f05acadec87b2e4488b471d65a2dd2ef81a8c1a" onclick=handleEvent("2f05acadec87b2e4488b471d65a2dd2ef81a8c1a")></td>
+<td bgcolor=#ffff00 id="d311817919ddd97abb7ee7cd174bfeccfa93700a" onclick=handleEvent("d311817919ddd97abb7ee7cd174bfeccfa93700a")></td>
+<td bgcolor=#00ff00 id="cc04fa11f1432c49a01f220d5e0a5e2afe440015" onclick=handleEvent("cc04fa11f1432c49a01f220d5e0a5e2afe440015")></td>
+<td bgcolor=#00ff00 id="df1827eecdd5b4e7cce9326b926a09001a1482d6" onclick=handleEvent("df1827eecdd5b4e7cce9326b926a09001a1482d6")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="9363004c4c262d8839d3fef8542ada3245cca890" onclick=handleEvent("9363004c4c262d8839d3fef8542ada3245cca890")></td>
+<td bgcolor=#ffff00 id="98cc7a028ac930eb22695adb4577192f800b8b7a" onclick=handleEvent("98cc7a028ac930eb22695adb4577192f800b8b7a")></td>
+</tr>
+<tr>
+<td>Linux gcc 8 (libstdc++11)</td>
+<td></td>
+<td bgcolor=#00ff00 id="6e33724b863211873040ce77a23e30e464b2a1e5" onclick=handleEvent("6e33724b863211873040ce77a23e30e464b2a1e5")></td>
+<td bgcolor=#00ff00 id="61b37a79737162726ab668849b48e6a46db99431" onclick=handleEvent("61b37a79737162726ab668849b48e6a46db99431")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="a1f69f9fe1fe8ea16017cd46bdff9709266b8f97" onclick=handleEvent("a1f69f9fe1fe8ea16017cd46bdff9709266b8f97")></td>
+<td bgcolor=#ffff00 id="ab4e7c25aab80a3092edbc324c8329de1478c08d" onclick=handleEvent("ab4e7c25aab80a3092edbc324c8329de1478c08d")></td>
+<td bgcolor=#00ff00 id="d9a16459c2e38cb5e58dfe4e461bab66f8ca41c1" onclick=handleEvent("d9a16459c2e38cb5e58dfe4e461bab66f8ca41c1")></td>
+<td bgcolor=#ffff00 id="19ed2ecb92296889fe3200f5dd92c6601e65618f" onclick=handleEvent("19ed2ecb92296889fe3200f5dd92c6601e65618f")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="2e1502deb936f85a46d5e5600d617d050a0de309" onclick=handleEvent("2e1502deb936f85a46d5e5600d617d050a0de309")></td>
+<td bgcolor=#ffff00 id="56e088b7f46753f09f2c4e4abc51ab0212d2d809" onclick=handleEvent("56e088b7f46753f09f2c4e4abc51ab0212d2d809")></td>
+<td bgcolor=#00ff00 id="9905a5148494b56ae9dca8f455ba4f212fe302ba" onclick=handleEvent("9905a5148494b56ae9dca8f455ba4f212fe302ba")></td>
+<td bgcolor=#00ff00 id="d4934860f748638bf72402dfb7da9dad761f688a" onclick=handleEvent("d4934860f748638bf72402dfb7da9dad761f688a")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="fe4e555b9ea30765b04f8d9b6408adb7b82bdb71" onclick=handleEvent("fe4e555b9ea30765b04f8d9b6408adb7b82bdb71")></td>
+<td bgcolor=#ffff00 id="b7349dec45701d314548d046518ac932957c9b5a" onclick=handleEvent("b7349dec45701d314548d046518ac932957c9b5a")></td>
+<td bgcolor=#ffff00 id="5e8eff81f2db7ac8c8c3d41364df2f92d8c53fdb" onclick=handleEvent("5e8eff81f2db7ac8c8c3d41364df2f92d8c53fdb")></td>
+<td bgcolor=#00ff00 id="233b338bb25e11a5779f1fc0340b9da1fe3ec240" onclick=handleEvent("233b338bb25e11a5779f1fc0340b9da1fe3ec240")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="63b69517866376e3c347a4e66b97eae73edbf229" onclick=handleEvent("63b69517866376e3c347a4e66b97eae73edbf229")></td>
+<td bgcolor=#ffff00 id="463ef0dcd89f8d7b50944b2457699b5e241448b5" onclick=handleEvent("463ef0dcd89f8d7b50944b2457699b5e241448b5")></td>
+</tr>
+<tr>
+<td>Macos apple-clang 9.0 (libc++)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="a1a82c367f5cca8c2ecdfe36a8225e42eb523ce4" onclick=handleEvent("a1a82c367f5cca8c2ecdfe36a8225e42eb523ce4")></td>
+<td bgcolor=#00ff00 id="702b52895488e667dec2de87dc4c3eca6448696b" onclick=handleEvent("702b52895488e667dec2de87dc4c3eca6448696b")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="153d39d49c4f30afd70516708290cb63cd1552f5" onclick=handleEvent("153d39d49c4f30afd70516708290cb63cd1552f5")></td>
+<td bgcolor=#ffff00 id="3d2bd3f0d8ec6ec26d23f3ec0ec8b44fd4c60e39" onclick=handleEvent("3d2bd3f0d8ec6ec26d23f3ec0ec8b44fd4c60e39")></td>
+<td bgcolor=#00ff00 id="f2611ffb396f99fee8ad926e7a905cea5b584581" onclick=handleEvent("f2611ffb396f99fee8ad926e7a905cea5b584581")></td>
+<td bgcolor=#00ff00 id="3f4ada010dcf78e7955cfa00319ac2a89c515e17" onclick=handleEvent("3f4ada010dcf78e7955cfa00319ac2a89c515e17")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="092700693deec62165209983c333a9c378db1c2f" onclick=handleEvent("092700693deec62165209983c333a9c378db1c2f")></td>
+<td bgcolor=#ffff00 id="ed88f175f0e70482daad78bd580c2f93ce4abd80" onclick=handleEvent("ed88f175f0e70482daad78bd580c2f93ce4abd80")></td>
+</tr>
+<tr>
+<td>Macos apple-clang 9.1 (libc++)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="efc4e7c67748cba41305fe11e0e404bf24797fda" onclick=handleEvent("efc4e7c67748cba41305fe11e0e404bf24797fda")></td>
+<td bgcolor=#00ff00 id="068a4540dacc5982fbf637da31d3f292fc4ffb21" onclick=handleEvent("068a4540dacc5982fbf637da31d3f292fc4ffb21")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="05cbc77084782b68d127393096d5bd4e2a0381af" onclick=handleEvent("05cbc77084782b68d127393096d5bd4e2a0381af")></td>
+<td bgcolor=#ffff00 id="f59e25eb438c022696e3b92f272dbc45df8ac6d3" onclick=handleEvent("f59e25eb438c022696e3b92f272dbc45df8ac6d3")></td>
+<td bgcolor=#00ff00 id="337dfe4a3a2f6851af7fcc931afed4f61b4db473" onclick=handleEvent("337dfe4a3a2f6851af7fcc931afed4f61b4db473")></td>
+<td bgcolor=#00ff00 id="72c486bd616b8d13bf6a5ac929a5526d761a168b" onclick=handleEvent("72c486bd616b8d13bf6a5ac929a5526d761a168b")></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="65cc47f0d703f021cd5beaf5e5547d550c4d902b" onclick=handleEvent("65cc47f0d703f021cd5beaf5e5547d550c4d902b")></td>
+<td bgcolor=#ffff00 id="4954664e4425a1c3c36181fae1dcf688eaf7a7fd" onclick=handleEvent("4954664e4425a1c3c36181fae1dcf688eaf7a7fd")></td>
+</tr>
+<tr>
+<td>NO settings</td>
+<td bgcolor=#00ff00 id="5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9" onclick=handleEvent("5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 12 (MD)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="58bbe914754e246e433d274657e26f50bae84425" onclick=handleEvent("58bbe914754e246e433d274657e26f50bae84425")></td>
+<td bgcolor=#00ff00 id="b97d57721993002333bd3efacdefd99327082925" onclick=handleEvent("b97d57721993002333bd3efacdefd99327082925")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="e47ed33bac8938ba93a163d0feba14779f891932" onclick=handleEvent("e47ed33bac8938ba93a163d0feba14779f891932")></td>
+<td bgcolor=#00ff00 id="ef3f438dac2fe524d792479400929a0552c8d0c3" onclick=handleEvent("ef3f438dac2fe524d792479400929a0552c8d0c3")></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 12 (MDd)</td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="e431c0c653f71d149858a35f7846a598833c54bb" onclick=handleEvent("e431c0c653f71d149858a35f7846a598833c54bb")></td>
+<td bgcolor=#00ff00 id="d19186f1b65140bc5c92356830f317d599a1e196" onclick=handleEvent("d19186f1b65140bc5c92356830f317d599a1e196")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="f1f8561f5b842b47814485421e6866f0b0132cd1" onclick=handleEvent("f1f8561f5b842b47814485421e6866f0b0132cd1")></td>
+<td bgcolor=#00ff00 id="c2f9a9cf59741a7af91a2a3d9154f9fc162537ed" onclick=handleEvent("c2f9a9cf59741a7af91a2a3d9154f9fc162537ed")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 12 (MT)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="1c06b834de6b4c74bda3b57d150cc089a53464e6" onclick=handleEvent("1c06b834de6b4c74bda3b57d150cc089a53464e6")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="d7afbc8c4c1e392c73e8fff9a6711b720fafc705" onclick=handleEvent("d7afbc8c4c1e392c73e8fff9a6711b720fafc705")></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 12 (MTd)</td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="131a5ad8f1a35bb4e00beb281d2246176b069fdc" onclick=handleEvent("131a5ad8f1a35bb4e00beb281d2246176b069fdc")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="800e4732dd825743f8cc4a068037885bb67af7d5" onclick=handleEvent("800e4732dd825743f8cc4a068037885bb67af7d5")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 14 (MD)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="dc845e8f5bacef015a9beb1d76760ec9b3364618" onclick=handleEvent("dc845e8f5bacef015a9beb1d76760ec9b3364618")></td>
+<td bgcolor=#00ff00 id="074918c337aca5be9d58dae70843c8455d1dcd6d" onclick=handleEvent("074918c337aca5be9d58dae70843c8455d1dcd6d")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="a8f1b413ade253d7f8c1618055f6f61b45de30f9" onclick=handleEvent("a8f1b413ade253d7f8c1618055f6f61b45de30f9")></td>
+<td bgcolor=#00ff00 id="5698abb6bf89b3d9089f04cc35e6d9815660573a" onclick=handleEvent("5698abb6bf89b3d9089f04cc35e6d9815660573a")></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 14 (MDd)</td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="9d57a1a78282b0d6eb1111b2f388e1905b4888bc" onclick=handleEvent("9d57a1a78282b0d6eb1111b2f388e1905b4888bc")></td>
+<td bgcolor=#00ff00 id="15ec62dcb00676c82d4d9e31b7bb052d55ef54ba" onclick=handleEvent("15ec62dcb00676c82d4d9e31b7bb052d55ef54ba")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="c4d6274a3c4dc6d9e4bc3dc05f94836a03caf903" onclick=handleEvent("c4d6274a3c4dc6d9e4bc3dc05f94836a03caf903")></td>
+<td bgcolor=#00ff00 id="d97cf8f9b8e3a34e0bac8bd1150272ecf1a06dae" onclick=handleEvent("d97cf8f9b8e3a34e0bac8bd1150272ecf1a06dae")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 14 (MT)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="f734bc14b36b95ae77c2206dd7e05def7c33db8c" onclick=handleEvent("f734bc14b36b95ae77c2206dd7e05def7c33db8c")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="98008706f62e7f5a7d7223e5089f79bf1fec6121" onclick=handleEvent("98008706f62e7f5a7d7223e5089f79bf1fec6121")></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 14 (MTd)</td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="06098051c0a6b279d734f2ff59018a69339cd8e7" onclick=handleEvent("06098051c0a6b279d734f2ff59018a69339cd8e7")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="4f7cb3aef68d5f41b9724b64903d187ea69ffaca" onclick=handleEvent("4f7cb3aef68d5f41b9724b64903d187ea69ffaca")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 15 (MD)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="d492682e658dbf20056df586c56672628b3a8bbd" onclick=handleEvent("d492682e658dbf20056df586c56672628b3a8bbd")></td>
+<td bgcolor=#00ff00 id="b3a49b4d05b99df707741970363097d2e876dfb9" onclick=handleEvent("b3a49b4d05b99df707741970363097d2e876dfb9")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="267704336ef55cc31615a75f0c9b0650a9afb8a9" onclick=handleEvent("267704336ef55cc31615a75f0c9b0650a9afb8a9")></td>
+<td bgcolor=#00ff00 id="29929b1deba07f613f7ddc25c0baf4d5a409487d" onclick=handleEvent("29929b1deba07f613f7ddc25c0baf4d5a409487d")></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 15 (MDd)</td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="c260466aa801baa916cab436b6ed96edcbc07315" onclick=handleEvent("c260466aa801baa916cab436b6ed96edcbc07315")></td>
+<td bgcolor=#00ff00 id="0f591b2a10d1f0ea5c9c2e29fcc08b57cce65115" onclick=handleEvent("0f591b2a10d1f0ea5c9c2e29fcc08b57cce65115")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="f00daea61c6727df79a1cc37311153bbf4ed5049" onclick=handleEvent("f00daea61c6727df79a1cc37311153bbf4ed5049")></td>
+<td bgcolor=#00ff00 id="3e472850e26f1f053646862cabd599c518df40a5" onclick=handleEvent("3e472850e26f1f053646862cabd599c518df40a5")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 15 (MT)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="f7cdf03034a5c53ece4c991406347afbf6c51ce0" onclick=handleEvent("f7cdf03034a5c53ece4c991406347afbf6c51ce0")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="7d6904fbf5485ed327726aecfa13cad1078beb05" onclick=handleEvent("7d6904fbf5485ed327726aecfa13cad1078beb05")></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Visual Studio 15 (MTd)</td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="1544cafd8f68550b0fe5a0fb7449133e240aacf1" onclick=handleEvent("1544cafd8f68550b0fe5a0fb7449133e240aacf1")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#00ff00 id="92a78a453f2ea617e6eeba55b1efd748e48dde48" onclick=handleEvent("92a78a453f2ea617e6eeba55b1efd748e48dde48")></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows gcc 6 (seh) (posix) (libstdc++)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="be609bfaf3e975ae2b349b9a8a056ed89588397a" onclick=handleEvent("be609bfaf3e975ae2b349b9a8a056ed89588397a")></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="31c2cff59a2b5680af986633a73273dff5326e76" onclick=handleEvent("31c2cff59a2b5680af986633a73273dff5326e76")></td>
+<td></td>
+<td bgcolor=#00ff00 id="e30029efd1823a434e657bbc9878a9dc2937a901" onclick=handleEvent("e30029efd1823a434e657bbc9878a9dc2937a901")></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="a9c71ceb4e73fa22118971df433848d1e3d4a748" onclick=handleEvent("a9c71ceb4e73fa22118971df433848d1e3d4a748")></td>
+<td></td>
+</tr>
+<tr>
+<td>Windows gcc 7 (seh) (posix) (libstdc++)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="9c0bfe95cd214b0de1bd2e521845486e40e50ed7" onclick=handleEvent("9c0bfe95cd214b0de1bd2e521845486e40e50ed7")></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="aeb6b4faf09048e1b959cdfc6d32c59134f24120" onclick=handleEvent("aeb6b4faf09048e1b959cdfc6d32c59134f24120")></td>
+<td></td>
+<td bgcolor=#00ff00 id="5c95d583790f13f2677038c213e36efe5c718003" onclick=handleEvent("5c95d583790f13f2677038c213e36efe5c718003")></td>
+<td></td>
+<td></td>
+<td></td>
+<td bgcolor=#ffff00 id="3519d8d7a5d63a26b5c60a96da03631a8b16da4c" onclick=handleEvent("3519d8d7a5d63a26b5c60a96da03631a8b16da4c")></td>
+<td></td>
+</tr>
+</table>
+<br>Selected: <div id="SelectedPackage"></div>
+<br>Legend<br><table><tr><td bgcolor=#ffff00>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Outdated from recipe</td></tr><tr><td bgcolor=#00ff00>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Updated</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Non existing</td></tr></table>
