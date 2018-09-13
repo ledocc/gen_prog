@@ -19,18 +19,18 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( ctor, T, types_to_test )
 {
     gen_prog::simple_version< T > v{ 1, 2, 3 };
 
-    BOOST_CHECK( v.getMajor() == 1 );
-    BOOST_CHECK( v.getMinor() == 2 );
-    BOOST_CHECK( v.getPatch() == 3 );
+    BOOST_CHECK( v.get_major() == 1 );
+    BOOST_CHECK( v.get_minor() == 2 );
+    BOOST_CHECK( v.get_patch() == 3 );
 }
 
 BOOST_AUTO_TEST_CASE_TEMPLATE( ctor2, T, types_to_test )
 {
     gen_prog::simple_version< T > v = { 1, 2, 3 };
 
-    BOOST_CHECK( v.getMajor() == 1 );
-    BOOST_CHECK( v.getMinor() == 2 );
-    BOOST_CHECK( v.getPatch() == 3 );
+    BOOST_CHECK( v.get_major() == 1 );
+    BOOST_CHECK( v.get_minor() == 2 );
+    BOOST_CHECK( v.get_patch() == 3 );
 }
 
 BOOST_AUTO_TEST_CASE_TEMPLATE( equal, T, types_to_test )
@@ -71,9 +71,9 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( assign, T, types_to_test )
     gen_prog::simple_version< T > v;
     v.set( 1, 2, 3 );
 
-    BOOST_CHECK( v.getMajor() == 1 );
-    BOOST_CHECK( v.getMinor() == 2 );
-    BOOST_CHECK( v.getPatch() == 3 );
+    BOOST_CHECK( v.get_major() == 1 );
+    BOOST_CHECK( v.get_minor() == 2 );
+    BOOST_CHECK( v.get_patch() == 3 );
 }
 
 BOOST_AUTO_TEST_CASE_TEMPLATE( stream, T, types_to_test )

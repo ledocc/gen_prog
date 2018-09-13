@@ -34,20 +34,20 @@ public:
     bool operator<( const simple_version & other ) const;
 
 
-    value_type getMajor() const { return _major; }
-    void       setMajor( value_type major ) { _major = major; }
+    value_type get_major() const { return _major; }
+    void       set_major( value_type major ) { _major = major; }
 
-    value_type getMinor() const { return _minor; }
-    void       setMinor( value_type minor ) { _minor = minor; }
+    value_type get_minor() const { return _minor; }
+    void       set_minor( value_type minor ) { _minor = minor; }
 
-    value_type getPatch() const { return _patch; }
-    void       setPatch( value_type patch ) { _patch = patch; }
+    value_type get_patch() const { return _patch; }
+    void       set_patch( value_type patch ) { _patch = patch; }
 
     void set( value_type major, value_type minor = 0, value_type patch = 0 )
     {
-        setMajor( major );
-        setMinor( minor );
-        setPatch( patch );
+        set_major( major );
+        set_minor( minor );
+        set_patch( patch );
     }
 
 
@@ -90,7 +90,6 @@ std::ostream & operator<<( std::ostream & os, const simple_version< T > & versio
     using is_uchar = std::is_same< T, unsigned char >;
 
     // clang-format off
-#if __cplusplus >= 201402L
     using output_type = std::conditional_t< is_char::value,
                                                 short,
                                                 std::conditional_t< is_uchar::value,
@@ -98,23 +97,14 @@ std::ostream & operator<<( std::ostream & os, const simple_version< T > & versio
                                                                         T
                                                                   >
                                           >;
-#else
-    using output_type = typename std::conditional< is_char::value,
-                                                   short,
-                                                   typename std::conditional< is_uchar::value,
-                                                                              unsigned short,
-                                                                              T
-                                                                            >::type
-                                                 >::type;
-#endif
     // clang-format on
 
 
-    os << static_cast< output_type >( version.getMajor() );
+    os << static_cast< output_type >( version.get_major() );
 
-    if ( os.precision() > 1 ) { os << "." << static_cast< output_type >( version.getMinor() ); }
+    if ( os.precision() > 1 ) { os << "." << static_cast< output_type >( version.get_minor() ); }
 
-    if ( os.precision() > 2 ) { os << "." << static_cast< output_type >( version.getPatch() ); }
+    if ( os.precision() > 2 ) { os << "." << static_cast< output_type >( version.get_patch() ); }
 
     return os;
 }
