@@ -26,5 +26,6 @@ link_libraries(gen_prog)
 
 add_subdirectory(algorithm)
 add_subdirectory(boost)
+add_subdirectory(network)
 add_subdirectory(thread)
 add_subdirectory(utils)
