@@ -1,21 +1,25 @@
 #ifndef gen_prog__on_exit_hpp
 #define gen_prog__on_exit_hpp
 
+
+
 namespace gen_prog {
 
 template <typename CallableT>
-class on_exit_operation
+class on_scope_exit_operation
 {
-    using this_type = on_exit_operation<CallableT>;
+    using this_type = on_scope_exit_operation<CallableT>;
+
 
 public:
-    on_exit_operation() = default;
-    on_exit_operation(const CallableT & call) : _call(call) {}
+    on_scope_exit_operation() = default;
+    on_scope_exit_operation(const CallableT & call) : _call(call) {}
 
-    on_exit_operation(const this_type & other) = delete;
-    on_exit_operation(this_type && other) : _call(std::move(other._call)) { other._toCall = false; }
+    on_scope_exit_operation(const this_type & other) = delete;
+    on_scope_exit_operation(this_type && other) : _call(std::move(other._call)) { other._toCall = false; }
 
-    ~on_exit_operation() { _call(); }
+    ~on_scope_exit_operation() { _call(); }
+
 
     this_type operator = (const this_type & other) = delete;
     this_type & operator = (this_type && other)
@@ -32,8 +36,23 @@ private:
     CallableT _call;
 };
 
+template <class CallableT>
+using on_exit_operation = on_scope_exit_operation<CallableT>;
+
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+
 template <typename CallableT>
-on_exit_operation<CallableT> on_exit(const CallableT & call)
+[[deprecated]] on_scope_exit_operation<CallableT> on_exit(const CallableT & call)
+{
+    return call;
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+template <typename CallableT>
+on_scope_exit_operation<CallableT> on_scope_exit(const CallableT & call)
 {
     return call;
 }
