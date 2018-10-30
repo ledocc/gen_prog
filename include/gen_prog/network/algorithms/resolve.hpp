@@ -17,8 +17,8 @@ namespace algorithms {
 template < class Resolver, class Timer, class Duration >
 typename Resolver::results_type resolve( Resolver &               resolver,
                                          Timer &                  timer,
-                                         boost::asio::string_view host,
-                                         boost::asio::string_view service,
+                                         BOOST_ASIO_STRING_VIEW_PARAM host,
+                                         BOOST_ASIO_STRING_VIEW_PARAM service,
                                          Duration                 duration )
 {
     boost::system::error_code ec;
@@ -30,8 +30,8 @@ typename Resolver::results_type resolve( Resolver &               resolver,
 template < class Resolver, class Timer, class Duration >
 typename Resolver::results_type resolve( Resolver &                  resolver,
                                          Timer &                     timer,
-                                         boost::asio::string_view    host,
-                                         boost::asio::string_view    service,
+                                         BOOST_ASIO_STRING_VIEW_PARAM    host,
+                                         BOOST_ASIO_STRING_VIEW_PARAM    service,
                                          Duration                    duration,
                                          boost::system::error_code & ec )
 {
@@ -41,8 +41,8 @@ typename Resolver::results_type resolve( Resolver &                  resolver,
 template < class Resolver, class Timer, class Duration >
 typename Resolver::results_type resolve( Resolver &               resolver,
                                          Timer &                  timer,
-                                         boost::asio::string_view host,
-                                         boost::asio::string_view service,
+                                         BOOST_ASIO_STRING_VIEW_PARAM host,
+                                         BOOST_ASIO_STRING_VIEW_PARAM service,
                                          Duration                 duration,
                                          typename Resolver::flags resolve_flags )
 {
@@ -55,8 +55,8 @@ typename Resolver::results_type resolve( Resolver &               resolver,
 template < class Resolver, class Timer, class Duration >
 typename Resolver::results_type resolve( Resolver &                  resolver,
                                          Timer &                     timer,
-                                         boost::asio::string_view    host,
-                                         boost::asio::string_view    service,
+                                         BOOST_ASIO_STRING_VIEW_PARAM    host,
+                                         BOOST_ASIO_STRING_VIEW_PARAM    service,
                                          Duration                    duration,
                                          typename Resolver::flags    resolve_flags,
                                          boost::system::error_code & ec )
@@ -67,8 +67,8 @@ typename Resolver::results_type resolve( Resolver &                  resolver,
 template < class Resolver, class Timer, class Duration, typename ResolveHandler >
 void async_resolve( Resolver &               resolver,
                     Timer &                  timer,
-                    boost::asio::string_view host,
-                    boost::asio::string_view service,
+                    BOOST_ASIO_STRING_VIEW_PARAM host,
+                    BOOST_ASIO_STRING_VIEW_PARAM service,
                     Duration                 duration,
                     ResolveHandler &&        handler )
 {
@@ -79,8 +79,8 @@ void async_resolve( Resolver &               resolver,
 template < class Resolver, class Timer, class Duration, typename ResolveHandler >
 void async_resolve( Resolver &               resolver,
                     Timer &                  timer,
-                    boost::asio::string_view host,
-                    boost::asio::string_view service,
+                    BOOST_ASIO_STRING_VIEW_PARAM host,
+                    BOOST_ASIO_STRING_VIEW_PARAM service,
                     Duration                 duration,
                     typename Resolver::flags resolve_flags,
                     ResolveHandler &&        handler )
