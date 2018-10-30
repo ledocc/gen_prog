@@ -2,7 +2,7 @@
 #define gen_prog__network__algorithms__detail__connect_operator_hpp
 
 
-
+#include <ciso646>
 #include <vector>
 
 #include <boost/asio/ts/executor.hpp>
