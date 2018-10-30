@@ -5,7 +5,7 @@
 
 #include <boost/asio/ts/executor.hpp>
 #include <boost/asio/ts/internet.hpp>
-#include <boost/utility/string_view.hpp>
+#include <boost/asio/detail/string_view.hpp>
 
 #include <gen_prog/network/algorithms/detail/operation.hpp>
 
@@ -52,8 +52,8 @@ public:
 
 
     template < class Duration >
-    results_type apply( boost::asio::string_view    host,
-                        boost::asio::string_view    service,
+    results_type apply( BOOST_ASIO_STRING_VIEW_PARAM    host,
+                        BOOST_ASIO_STRING_VIEW_PARAM    service,
                         Duration                    duration,
                         boost::system::error_code & ec )
     {
@@ -63,8 +63,8 @@ public:
     }
 
     template < class Duration >
-    results_type apply( boost::asio::string_view    host,
-                        boost::asio::string_view    service,
+    results_type apply( BOOST_ASIO_STRING_VIEW_PARAM    host,
+                        BOOST_ASIO_STRING_VIEW_PARAM    service,
                         Duration                    duration,
                         typename Resolver::flags    resolve_flags,
                         boost::system::error_code & ec )
@@ -75,8 +75,8 @@ public:
     }
 
     template < class Duration, typename ResolveHandler >
-    void async_apply( boost::asio::string_view host,
-                      boost::asio::string_view service,
+    void async_apply( BOOST_ASIO_STRING_VIEW_PARAM host,
+                      BOOST_ASIO_STRING_VIEW_PARAM service,
                       Duration                 duration,
                       ResolveHandler &&        handler )
     {
@@ -86,8 +86,8 @@ public:
     }
 
     template < class Duration, typename ResolveHandler >
-    void async_apply( boost::asio::string_view host,
-                      boost::asio::string_view service,
+    void async_apply( BOOST_ASIO_STRING_VIEW_PARAM host,
+                      BOOST_ASIO_STRING_VIEW_PARAM service,
                       Duration                 duration,
                       typename Resolver::flags resolve_flags,
                       ResolveHandler &&        handler )
@@ -100,7 +100,7 @@ public:
 
 private:
     results_type
-    resolve( boost::asio::string_view host, boost::asio::string_view service, boost::system::error_code & errorCode )
+    resolve( BOOST_ASIO_STRING_VIEW_PARAM host, BOOST_ASIO_STRING_VIEW_PARAM service, boost::system::error_code & errorCode )
     {
         std::promise< void > promise;
         results_type         results;
@@ -119,8 +119,8 @@ private:
         return results;
     }
 
-    results_type resolve( boost::asio::string_view    host,
-                          boost::asio::string_view    service,
+    results_type resolve( BOOST_ASIO_STRING_VIEW_PARAM    host,
+                          BOOST_ASIO_STRING_VIEW_PARAM    service,
                           typename Resolver::flags    resolve_flags,
                           boost::system::error_code & errorCode )
     {
@@ -143,15 +143,15 @@ private:
     }
 
     template < typename ResolveHandler >
-    void async_resolve( boost::asio::string_view host, boost::asio::string_view service, ResolveHandler && handler )
+    void async_resolve( BOOST_ASIO_STRING_VIEW_PARAM host, BOOST_ASIO_STRING_VIEW_PARAM service, ResolveHandler && handler )
     {
         _resolver.async_resolve(
             host, service, get_handler_that_cancel_timer( std::forward< ResolveHandler >( handler ) ) );
     }
 
     template < typename ResolveHandler >
-    void async_resolve( boost::asio::string_view host,
-                        boost::asio::string_view service,
+    void async_resolve( BOOST_ASIO_STRING_VIEW_PARAM host,
+                        BOOST_ASIO_STRING_VIEW_PARAM service,
                         typename Resolver::flags resolve_flags,
                         ResolveHandler &&        handler )
     {
