@@ -2,7 +2,7 @@
 #define gen_prog__network__algorithms__connect_hpp
 
 
-
+#include <ciso646>
 #include <type_traits>
 
 #include <boost/asio/ts/socket.hpp>
