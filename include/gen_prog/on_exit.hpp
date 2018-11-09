@@ -3,7 +3,7 @@
 
 
 
-#include <gen_prog/on_scope_exit.hpp>
+#include <gen_prog/utility/on_scope_exit.hpp>
 
 
 
@@ -16,12 +16,11 @@ using on_exit_operation = on_scope_exit_operation<CallableT>;
 //--------------------------------------------------------------------------------------------------------------------//
 
 template <typename CallableT>
-[[deprecated]] on_exit_operation<CallableT> on_exit(const CallableT & call)
+[[deprecated]] utils::on_exit_operation<CallableT> on_exit(const CallableT & call)
 {
     return call;
 }
 
 } // namespace gen_prog
-
 
 #endif // gen_prog__on_exit_hpp

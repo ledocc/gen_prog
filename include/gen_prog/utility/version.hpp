@@ -1,5 +1,5 @@
-#ifndef gen_prog__utils__version_hpp
-#define gen_prog__utils__version_hpp
+#ifndef gen_prog__utility__version_hpp
+#define gen_prog__utility__version_hpp
 
 
 
@@ -10,7 +10,7 @@
 
 
 namespace gen_prog {
-namespace utils {
+namespace utility {
 
 /// simple_version template with major, minor, patch value.
 
@@ -109,15 +109,15 @@ std::ostream & operator<<( std::ostream & os, const simple_version< T > & versio
     return os;
 }
 
-} // namespace utils
+} // namespace utility
 
 //--------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------//
 
 template <typename T>
-using simple_version = utils::simple_version<T>;
+using simple_version = utility::simple_version<T>;
 
 } // namespace gen_prog
 
-#endif // gen_prog__utils__version_hpp
+#endif // gen_prog__utility__version_hpp

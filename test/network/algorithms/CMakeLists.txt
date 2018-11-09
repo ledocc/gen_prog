@@ -4,10 +4,10 @@ set(TEST_SRC
     resolve.test.cpp
 )
 
-cmut_add_boost_tests("unit_network_algorithms" ${TEST_SRC})
+cmut__test__boost__add_tests("unit__network__algorithms" ${TEST_SRC})
 
 
 set_tests_properties(
-    unit_network_algorithms__connect
+    unit__network__algorithms__connect
     PROPERTIES
         FIXTURES_REQUIRED server)
