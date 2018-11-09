@@ -7,7 +7,7 @@ set(TEST_SRC
     connector.test.cpp
 )
 
-#cmut_add_boost_tests("unit_network" ${TEST_SRC})
+#cmut__test__boost__add_tests("unit_network" ${TEST_SRC})
 
 add_test( NAME unit_network__run_python_http_server
           COMMAND python3 "${PROJECT_SOURCE_DIR}/test/scripts/run_server.py" --port 22222

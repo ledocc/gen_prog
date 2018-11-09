@@ -10,12 +10,9 @@
 
 include("${PROJECT_SOURCE_DIR}/cmake/tools/cmut/cmut_boost_test.cmake")
 
-cmut_test__find_boost_test(1.64.0)
-cmut_test__find_turtle()
+cmut__test__boost__find_required_components(1.64.0)
+cmut__test__turtle__find_required_components()
 
-if(NOT Boost_UNIT_TEST_FRAMEWORK_FOUND OR NOT TURTLE_FOUND)
-    return()
-endif()
 
 
 cmut__build__define_output_dir("${PROJECT_BINARY_DIR}/test")
@@ -29,4 +26,4 @@ add_subdirectory(boost)
 add_subdirectory(network)
 add_subdirectory(thread)
 add_subdirectory(type_traits)
-add_subdirectory(utils)
+add_subdirectory(utility)
