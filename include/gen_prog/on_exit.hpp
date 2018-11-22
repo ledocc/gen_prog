@@ -1,7 +1,7 @@
 #ifndef gen_prog__on_exit_hpp
 #define gen_prog__on_exit_hpp
 
-
+#warning "gen_prog/on_exit.hpp" is deprecated, use "gen_prog/utility/on_scope_exit.hpp" instead.
 
 #include <gen_prog/utility/on_scope_exit.hpp>
 
@@ -16,7 +16,7 @@ using on_exit_operation = on_scope_exit_operation<CallableT>;
 //--------------------------------------------------------------------------------------------------------------------//
 
 template <typename CallableT>
-[[deprecated]] utils::on_exit_operation<CallableT> on_exit(const CallableT & call)
+[[deprecated]] on_exit_operation<CallableT> on_exit(const CallableT & call)
 {
     return call;
 }
