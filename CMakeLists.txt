@@ -17,6 +17,7 @@ cmake_minimum_required(VERSION 3.6.1)
 cmake_policy(VERSION 3.6)
 
 
+
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
 ########################################################################################################################
 ########################################################################################################################
@@ -26,10 +27,13 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
 ########################################################################################################################
 ########################################################################################################################
 project(gen_prog)
+cmut__config__print_info()
 cmut__config__log_project_begin()
-cmut__utils__set_project_version_from_file("${CMAKE_CURRENT_LIST_DIR}/version.txt")
-cmut__utils__get_build_time(${PROJECT_NAME}_BUILD_TIME)
+cmut__project__set_version_from_file("${CMAKE_CURRENT_LIST_DIR}/version.txt")
 
+cmut__project__get_build_time(${PROJECT_NAME}_BUILD_TIME)
+cmut__project__get_git_revision_count(${PROJECT_NAME}_GIT_REVISION_COUNT)
+cmut__project__get_git_revision_hash(${PROJECT_NAME}_GIT_REVISION_HASH)
 
 
 ########################################################################################################################
@@ -43,11 +47,15 @@ list(INSERT CMAKE_MODULE_PATH 0
     ${CMAKE_HOME_DIRECTORY}/cmake
 )
 
-# cmut's module
-include( "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut_get_git_info.cmake" )
 
-
+##--------------------------------------------------------------------------------------------------------------------##
+# define build options
+##--------------------------------------------------------------------------------------------------------------------##
 cmut__config__option_developer_mode()
+cmut__config__option_build_documentation(OFF)
+cmut__config__option_build_examples(OFF)
+cmut__config__option_build_shared_libs(ON)
+include(CTest) # define BUILD_TESTING
 cmut__config__option_ccache(ON)
 cmut__config__option_clang_tidy(OFF)
 cmut__config__option_cppcheck(OFF)
@@ -55,7 +63,34 @@ cmut__config__option_include_what_you_use(OFF)
 
 cmut__config__default_build_type(Release)
 
+option(BUILD_DEPENDENCIES "use conan to install/build dependencies" OFF)
+option(Boost_USE_STATIC_LIBS "Use boost's libraries statically linked." ${BUILD_SHARED_LIBS})
+option(GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE "Include \"conan_paths.cmake\" generated in binary directory by used with conan." OFF)
 
+
+##--------------------------------------------------------------------------------------------------------------------##
+# install dependencies
+##--------------------------------------------------------------------------------------------------------------------##
+if(BUILD_DEPENDENCIES)
+    cmut__conan__download_cmake_conan()
+    include(${CMAKE_BINARY_DIR}/conan.cmake)
+    conan_check(VERSION 1.0.0 REQUIRED)
+
+    if(BUILD_SHARED_LIBS)
+        set(CONAN_CMAKE_RUN__OPTIONS OPTIONS "*:shared=True")
+    else()
+        set(CONAN_CMAKE_RUN__OPTIONS OPTIONS "*:shared=False")
+    endif()
+
+    conan_cmake_run(
+        CONANFILE conanfile.py
+        BUILD missing
+        ${CONAN_CMAKE_RUN__OPTIONS}
+        )
+endif()
+if( BUILD_DEPENDENCIES OR CONAN_EXPORTED OR GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE)
+    include( "${CMAKE_BINARY_DIR}/conan_paths.cmake" )
+endif()
 
 ########################################################################################################################
 ########################################################################################################################
@@ -111,11 +146,10 @@ endif()
 
 add_subdirectory(src)
 
-if(DOXYGEN_FOUND)
+if(BUILD_DOC)
 #    add_subdirectory(doc)
 endif()
 
-include(CTest)
 if(BUILD_TESTING)
     add_subdirectory(test)
 endif()

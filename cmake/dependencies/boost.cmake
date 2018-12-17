@@ -10,6 +10,12 @@ set( gen_prog_Boost_COMPONENTS
 
 if (ANDROID)
     set(Boost_USE_STATIC_LIBS        ON)
+else()
+    if(BUILD_SHARED_LIBS)
+        set(Boost_USE_STATIC_LIBS        OFF)
+    else()
+        set(Boost_USE_STATIC_LIBS        ON)
+    endif()
 endif()
 
 find_package(

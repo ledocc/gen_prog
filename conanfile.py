@@ -1,23 +1,33 @@
-from conans import ConanFile, CMake
+from conans import ConanFile, CMake, tools
 import os
 
 class GenProgConan(ConanFile):
+    name = "gen_prog"
+    version = "0.7.1"
+    author = "David Callu (callu.david at gmail.com)"
+    license = "Boost Software License - Version 1.0"
+    url = "https://github.com/ledocc/gen_prog"
+    description = "generic programming code"
     settings = "os", "compiler", "build_type", "arch"
-    requires = "boost/1.67.0@conan/stable" # comma-separated list of requirements
+    options = {"shared": [True, False]}
+    default_options = {"shared": True}
     generators = "cmake_paths"
-    default_options = ""
+    scm = {
+        "type": "git",
+        "url": "https://github.com/ledocc/gen_prog.git",
+        "revision": "auto"
+    }
+    requires = (("boost/1.69.0@conan/stable"),
+                ("turtle/master-1b5d8c8@ledocc/master"))
+
 
     def build(self):
-        cmake = CMake(self, generator="Ninja")
+        cmake = CMake(self)
         cmake.verbose=True
-        for var, val in os.environ.items():
-            print("[{0}] = {1}".format(var,val))
-        for var, val in cmake.definitions.items():
-            print("[{0}] = {1}".format(var,val))
-        print(cmake.command_line)
         cmake.configure()
         cmake.build()
         cmake.test()
 
     def imports(self):
-        self.copy("license*", dst="licenses", folder=True, ignore_case=True)
+        self.copy("*.h", dst="include", src="include")
+        self.copy("LICENSE_1_0.txt", dst="licenses", folder=True, ignore_case=True)
