@@ -31,3 +31,6 @@ class GenProgConan(ConanFile):
     def imports(self):
         self.copy("*.h", dst="include", src="include")
         self.copy("LICENSE_1_0.txt", dst="licenses", folder=True, ignore_case=True)
+
+    def package_id(self):
+        self.info.header_only()
