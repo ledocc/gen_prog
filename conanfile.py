@@ -18,6 +18,7 @@ class GenProgConan(ConanFile):
         "revision": "auto",
         "submodule": "recursive"
     }
+    build_requires = "cmake_installer/3.13.0@conan/stable"
     requires = (("boost/1.69.0@conan/stable"),
                 ("turtle/master-1b5d8c8@ledocc/stable"))
 
