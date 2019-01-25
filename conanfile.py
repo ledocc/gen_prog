@@ -15,7 +15,8 @@ class GenProgConan(ConanFile):
     scm = {
         "type": "git",
         "url": "https://github.com/ledocc/gen_prog.git",
-        "revision": "auto"
+        "revision": "auto",
+        "submodule": "recursive"
     }
     requires = (("boost/1.69.0@conan/stable"),
                 ("turtle/master-1b5d8c8@ledocc/stable"))
