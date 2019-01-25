@@ -18,7 +18,7 @@ class GenProgConan(ConanFile):
         "revision": "auto"
     }
     requires = (("boost/1.69.0@conan/stable"),
-                ("turtle/master-1b5d8c8@ledocc/master"))
+                ("turtle/master-1b5d8c8@ledocc/stable"))
 
 
     def build(self):
@@ -30,7 +30,7 @@ class GenProgConan(ConanFile):
 
     def package(self):
         self.copy("*.h", dst="include", src="include")
-        self.copy("LICENSE_1_0.txt", dst="licenses", folder=True, ignore_case=True)
+        self.copy("LICENSE_1_0.txt", dst="licenses", ignore_case=True)
 
     def package_id(self):
         self.info.header_only()
