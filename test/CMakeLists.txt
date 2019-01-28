@@ -10,11 +10,6 @@
 
 include("${PROJECT_SOURCE_DIR}/cmake/tools/cmut/cmut_boost_test.cmake")
 
-if(BUILD_SHARED_LIBS)
-    set(STATIC_LIBS_OPTION)
-else()
-    set(STATIC_LIBS_OPTION STATIC_LIBS)
-endif()
 cmut__test__boost__find_required_components(1.64.0 ${STATIC_LIBS_OPTION})
 cmut__test__turtle__find_required_components()
 

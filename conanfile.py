@@ -10,7 +10,9 @@ class GenProgConan(ConanFile):
     description = "generic programming code"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
-    default_options = {"shared": True}
+    default_options = dict( { "shared":True, "*:shared":True } )
+
+
     generators = "cmake_paths"
     scm = {
         "type": "git",

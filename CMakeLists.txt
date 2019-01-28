@@ -64,7 +64,6 @@ cmut__config__option_include_what_you_use(OFF)
 cmut__config__default_build_type(Release)
 
 option(BUILD_DEPENDENCIES "use conan to install/build dependencies" OFF)
-option(Boost_USE_STATIC_LIBS "Use boost's libraries statically linked." ${BUILD_SHARED_LIBS})
 option(GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE "Include \"conan_paths.cmake\" generated in binary directory by used with conan." OFF)
 
 
