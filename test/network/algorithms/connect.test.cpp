@@ -29,7 +29,7 @@ struct Fixture
     boost::asio::ip::tcp::socket       _socket{ _io_context };
     boost::asio::high_resolution_timer _timer{ _io_context };
 
-    boost::asio::ip::address_v4    unknownIPv4{ { 127, 10, 10, 1 } };
+    boost::asio::ip::address_v4    unknownIPv4{ { 0, 0, 0, 1 } };
     boost::asio::ip::tcp::endpoint unknown_endpoint{ unknownIPv4, 22222 };
 
     boost::asio::ip::address_v4    localhostIPv4{ { 127, 0, 0, 1 } };
