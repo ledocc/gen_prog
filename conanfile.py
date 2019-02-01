@@ -25,15 +25,21 @@ class GenProgConan(ConanFile):
                 ("turtle/master-1b5d8c8@ledocc/stable"))
 
     def build(self):
-        cmake = CMake(self)
-        cmake.verbose=True
-        cmake.configure()
+        cmake = self._configure_cmake()
         cmake.build()
         cmake.test()
 
     def package(self):
-        self.copy("*.h", dst="include", src="include")
+        cmake = self._configure_cmake()
+        cmake.install()
         self.copy("LICENSE_1_0.txt", dst="licenses", ignore_case=True)
 
     def package_id(self):
         self.info.header_only()
+
+
+    def _configure_cmake(self):
+        cmake = CMake(self)
+        cmake.verbose=True
+        cmake.configure()
+
