@@ -38,6 +38,8 @@ add_library(
     ${target} INTERFACE
 #    ${${target}_HEADERS}
 )
+target_compile_features( ${target} INTERFACE cxx_std_14 )
+
 #set_target_properties(${target}
 #    PROPERTIES
 #        LINKER_LANGUAGE CXX
