@@ -67,10 +67,13 @@ option(BUILD_DEPENDENCIES "use conan to install/build dependencies" OFF)
 option(GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE "Include \"conan_paths.cmake\" generated in binary directory by used with conan." OFF)
 
 
+
 ##--------------------------------------------------------------------------------------------------------------------##
 # install dependencies
 ##--------------------------------------------------------------------------------------------------------------------##
 if(BUILD_DEPENDENCIES)
+    cmut__lang__set_if_not_defined(CMAKE_CXX_STANDARD 14)
+
     cmut__conan__download_cmake_conan()
     include(${CMAKE_BINARY_DIR}/conan.cmake)
     conan_check(VERSION 1.0.0 REQUIRED)
@@ -88,6 +91,9 @@ if(BUILD_DEPENDENCIES)
         )
 endif()
 if( BUILD_DEPENDENCIES OR CONAN_EXPORTED OR GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE)
+    if(CONAN_EXPORTED OR GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE)
+        cmut__conan__capture_cxx_standard()
+    endif()
     include( "${CMAKE_BINARY_DIR}/conan_paths.cmake" )
 endif()
 
@@ -119,7 +125,7 @@ cmut__build__define_output_dir()
 cmut__build__msvc__option_use_mp()
 
 # enable C++14
-cmut__build__enable_cxx_standard(14)
+#cmut__build__enable_cxx_standard(14)
 
 # enable warning
 cmut__build__enable_warning(AGGRESSIVE)

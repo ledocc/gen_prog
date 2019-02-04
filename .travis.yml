@@ -5,6 +5,7 @@ env:
      - CONAN_USERNAME: "ledocc"
      - CONAN_LOGIN_USERNAME: "ledocc"
      - CONAN_CHANNEL: "testing"
+     - CONAN_TOTAL_PAGES: 8
 
 linux: &linux
    os: linux
@@ -14,65 +15,162 @@ linux: &linux
    python: "3.6"
    services:
      - docker
+
 osx: &osx
    os: osx
    language: generic
+
+windows: &windows
+   os: windows
+   language: cpp
+
 matrix:
    include:
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=1
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=2
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=3
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=4
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=5
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=6
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=7
+#      - <<: *windows
+#        env: CONAN_VISUAL_VERSIONS=15 CONAN_CURRENT_PAGE=8
 
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=conanio/gcc49
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=1
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=2
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=3
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=4
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=5
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=6
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=7
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6 CONAN_CURRENT_PAGE=8
 
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=conanio/gcc5
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=1
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=2
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=3
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=4
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=5
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=6
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=7
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_CURRENT_PAGE=8
 
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=conanio/gcc6
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=1
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=2
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=3
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=4
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=5
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=6
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=7
+#    - <<: *linux
+#      env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_CURRENT_PAGE=8
 
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=1
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=2
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=3
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=4
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=5
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=6
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=7
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60 CONAN_CURRENT_PAGE=8
 
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=1
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=2
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=3
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=4
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=5
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=6
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=7
+#    - <<: *linux
+#      env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7 CONAN_CURRENT_PAGE=8
 
-      - <<: *linux
-        env: CONAN_CLANG_VERSIONS=3.9 CONAN_DOCKER_IMAGE=conanio/clang39
+    - <<: *osx
+      osx_image: xcode9.2
+      env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_CURRENT_PAGE=1
+    - <<: *osx
+      osx_image: xcode9.2
+      env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_CURRENT_PAGE=2
+    - <<: *osx
+      osx_image: xcode9.2
+      env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_CURRENT_PAGE=3
+    - <<: *osx
+      osx_image: xcode9.2
+      env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_CURRENT_PAGE=4
 
-      - <<: *linux
-        env: CONAN_CLANG_VERSIONS=4.0 CONAN_DOCKER_IMAGE=conanio/clang40
+    - <<: *osx
+      osx_image: xcode9.3
+      env: CONAN_APPLE_CLANG_VERSIONS=9.1 CONAN_CURRENT_PAGE=1
+    - <<: *osx
+      osx_image: xcode9.3
+      env: CONAN_APPLE_CLANG_VERSIONS=9.1 CONAN_CURRENT_PAGE=2
+    - <<: *osx
+      osx_image: xcode9.3
+      env: CONAN_APPLE_CLANG_VERSIONS=9.1 CONAN_CURRENT_PAGE=3
+    - <<: *osx
+      osx_image: xcode9.3
+      env: CONAN_APPLE_CLANG_VERSIONS=9.1 CONAN_CURRENT_PAGE=4
 
-      - <<: *linux
-        env: CONAN_CLANG_VERSIONS=5.0 CONAN_DOCKER_IMAGE=conanio/clang50
-
-      - <<: *linux
-        env: CONAN_CLANG_VERSIONS=6.0 CONAN_DOCKER_IMAGE=conanio/clang60
-
-      - <<: *linux
-        env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang70
-
-      - <<: *osx
-        osx_image: xcode7.3
-        env: CONAN_APPLE_CLANG_VERSIONS=7.3
-
-      - <<: *osx
-        osx_image: xcode8.3
-        env: CONAN_APPLE_CLANG_VERSIONS=8.1
-
-      - <<: *osx
-        osx_image: xcode9.2
-        env: CONAN_APPLE_CLANG_VERSIONS=9.0
-
-      - <<: *osx
-        osx_image: xcode9.3
-        env: CONAN_APPLE_CLANG_VERSIONS=9.1
-
-      - <<: *osx
-        osx_image: xcode10
-        env: CONAN_APPLE_CLANG_VERSIONS=10.0
+    - <<: *osx
+      osx_image: xcode10
+      env: CONAN_APPLE_CLANG_VERSIONS=10.0 CONAN_CURRENT_PAGE=1
+    - <<: *osx
+      osx_image: xcode10
+      env: CONAN_APPLE_CLANG_VERSIONS=10.0 CONAN_CURRENT_PAGE=2
+    - <<: *osx
+      osx_image: xcode10
+      env: CONAN_APPLE_CLANG_VERSIONS=10.0 CONAN_CURRENT_PAGE=3
+    - <<: *osx
+      osx_image: xcode10
+      env: CONAN_APPLE_CLANG_VERSIONS=10.0 CONAN_CURRENT_PAGE=4
 
 install:
   - chmod +x .travis/install.sh
   - ./.travis/install.sh
+  - python3 --version
 
 script:
   - chmod +x .travis/run.sh

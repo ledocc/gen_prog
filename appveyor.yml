@@ -1,3 +1,7 @@
+clone_script:
+    - cmd: git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+    - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
+
 build: false
 
 environment:
@@ -9,8 +13,6 @@ environment:
     CONAN_CHANNEL: "testing"
 
     matrix:
-        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-          CONAN_VISUAL_VERSIONS: 12
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
           CONAN_VISUAL_VERSIONS: 14
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
