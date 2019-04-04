@@ -19,6 +19,7 @@ cmake_policy(VERSION 3.6)
 
 
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
+cmut__config__print_info()
 ########################################################################################################################
 ########################################################################################################################
 #
@@ -26,10 +27,9 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
 #
 ########################################################################################################################
 ########################################################################################################################
-project(gen_prog)
-cmut__config__print_info()
+cmut__project__read_version_file(version "${CMAKE_CURRENT_LIST_DIR}/version.txt")
+project(gen_prog VERSION ${version})
 cmut__config__log_project_begin()
-cmut__project__set_version_from_file("${CMAKE_CURRENT_LIST_DIR}/version.txt")
 
 cmut__project__get_build_time(${PROJECT_NAME}_BUILD_TIME)
 cmut__project__get_git_revision_count(${PROJECT_NAME}_GIT_REVISION_COUNT)
@@ -75,38 +75,13 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/build_dependencies.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/dependencies/include_all.cmake")
 
 
-
-########################################################################################################################
-########################################################################################################################
-#
+##--------------------------------------------------------------------------------------------------------------------##
 # define build policies
-#
-########################################################################################################################
-########################################################################################################################
-
-set(CMAKE_DEBUG_POSTFIX "d")
-
-# define CMAKE_*_OUTPUT_DIRECTORY
-cmut__build__define_output_dir()
-
-# add option to enable build with all cpu's core when use Visual Studio or nmake
-cmut__build__msvc__option_use_mp()
-
-# enable C++14
-#cmut__build__enable_cxx_standard(14)
-
-# enable warning
-cmut__build__enable_warning(AGGRESSIVE)
-
-# use RUNPATH instead of depreciated RPATH
-cmut__build__enable_runpath_link()
-
-cmut__build__set_cxx_visibility(hidden)
-
-if (MSVC)
-    add_definitions(-DUNICODE)
-endif()
-
+##--------------------------------------------------------------------------------------------------------------------##
+cmut__project__setup_project(
+    WARNING_AGGRESSIVE WARNING_AS_ERROR
+    WARNING_NO_ERROR deprecated deprecated-declarations
+    )
 
 
 ########################################################################################################################
