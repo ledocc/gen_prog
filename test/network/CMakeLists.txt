@@ -1,6 +1,5 @@
 
 find_package(Threads)
-
 link_libraries(Threads::Threads)
 
 set(TEST_SRC

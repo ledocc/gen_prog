@@ -10,9 +10,8 @@
 
 include("${PROJECT_SOURCE_DIR}/cmake/tools/cmut/cmut_boost_test.cmake")
 
-cmut__test__boost__find_required_components(1.64.0 ${STATIC_LIBS_OPTION})
+cmut__test__boost__find_required_components(1.64.0)
 cmut__test__turtle__find_required_components()
-
 
 
 cmut__build__define_output_dir("${PROJECT_BINARY_DIR}/test")
