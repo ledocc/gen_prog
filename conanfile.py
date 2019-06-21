@@ -12,7 +12,7 @@ class GenProgConan(ConanFile):
     license = "Boost Software License - Version 1.0"
     url = "https://github.com/ledocc/gen_prog"
     description = "generic programming code"
-    settings = "os", "compiler", "build_type", "arch", "cppstd"
+    settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = dict( { "shared":True, "*:shared":True } )
 
@@ -20,7 +20,7 @@ class GenProgConan(ConanFile):
     generators = "cmake_paths"
     scm = {
         "type": "git",
-        "url": "https://github.com/ledocc/gen_prog.git",
+        "url": "auto",
         "revision": "auto",
         "submodule": "recursive"
     }
@@ -29,7 +29,7 @@ class GenProgConan(ConanFile):
                 ("turtle/master-1b5d8c8@ledocc/stable"))
 
     def configure(self):
-        if self.settings.cppstd in [ None, "98", "gnu98", "11", "gnu11" ]:
+        if self.settings.compiler.cppstd in [ None, "98", "gnu98", "11", "gnu11" ]:
             raise errors.ConanInvalidConfiguration("Library gen_prog require C++ 14 or greater.")
 
     def build(self):
