@@ -1,13 +1,19 @@
 from conans import ConanFile, CMake, tools, errors
+from conans.client.build.cppstd_flags import cppstd_from_settings, cppstd_default
 
 import os
 import platform
 
 
+def get_package_version():
+    version_file_path = os.path.realpath( os.path.join( os.path.dirname( os.path.realpath( __file__ ) ) , "version.txt" ) )
+    with open( version_file_path, mode='r' ) as f:
+        return f.readline()
+
 
 class GenProgConan(ConanFile):
     name = "gen_prog"
-    version = "0.7.1"
+    version = get_package_version()
     author = "David Callu (callu.david at gmail.com)"
     license = "Boost Software License - Version 1.0"
     url = "https://github.com/ledocc/gen_prog"
@@ -16,21 +22,26 @@ class GenProgConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = dict( { "shared":True, "*:shared":True } )
 
+    exports = "version.txt"
 
     generators = "cmake_paths"
     scm = {
         "type": "git",
-        "url": "auto",
+        "url": "https://github.com/ledocc/gen_prog",
         "revision": "auto",
         "submodule": "recursive"
     }
-    build_requires = "cmake_installer/3.13.0@conan/stable"
-    requires = (("boost/1.69.0@conan/stable"),
+    build_requires = "cmake_installer/3.14.5@conan/stable"
+    requires = (("boost/1.70.0@conan/stable"),
                 ("turtle/master-1b5d8c8@ledocc/stable"))
 
     def configure(self):
-        if self.settings.compiler.cppstd in [ None, "98", "gnu98", "11", "gnu11" ]:
-            raise errors.ConanInvalidConfiguration("Library gen_prog require C++ 14 or greater.")
+        cppstd = cppstd_from_settings(self.settings)
+        if cppstd == None:
+            cppstd = cppstd_default(self.settings.get_safe("compiler"), self.settings.get_safe("compiler.version"))
+        if cppstd not in [ None, "98", "gnu98", "11", "gnu11" ]:
+            return
+        raise errors.ConanInvalidConfiguration("Library gen_prog require C++ 14 or greater.")
 
     def build(self):
         cmake = self._configure_cmake()
@@ -41,7 +52,6 @@ class GenProgConan(ConanFile):
         cmake = self._configure_cmake()
         cmake.install()
         self.copy("LICENSE_1_0.txt", dst="licenses", ignore_case=True)
-
 
 
     def _configure_cmake(self):
