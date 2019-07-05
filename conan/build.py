@@ -1,19 +1,15 @@
 import os
+from conans import tools
 from cpt.packager import ConanMultiPackager
 
 
 if __name__ == "__main__":
 
-    def get_package_version():
-        version_file_path = os.path.realpath( os.path.join( os.path.dirname( os.path.realpath( __file__ ) ) , "..", "version.txt" ) )
-        with open( version_file_path, mode='r' ) as f:
-            return f.readline()
-
     builder = ConanMultiPackager(
         username='ledocc',
         login_username='ledocc',
         upload="https://api.bintray.com/conan/ledocc/public-conan",
-        reference="gen_prog/"+get_package_version(),
+        reference="gen_prog/"+tools.load("version.txt"),
         stable_branch_pattern="master",
         channel="testing"
         )

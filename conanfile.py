@@ -5,15 +5,10 @@ import os
 import platform
 
 
-def get_package_version():
-    version_file_path = os.path.realpath( os.path.join( os.path.dirname( os.path.realpath( __file__ ) ) , "version.txt" ) )
-    with open( version_file_path, mode='r' ) as f:
-        return f.readline()
-
 
 class GenProgConan(ConanFile):
     name = "gen_prog"
-    version = get_package_version()
+    version = tools.load("version.txt")
     author = "David Callu (callu.david at gmail.com)"
     license = "Boost Software License - Version 1.0"
     url = "https://github.com/ledocc/gen_prog"
@@ -57,10 +52,7 @@ class GenProgConan(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self, set_cmake_flags=True)
         cmake.verbose=True
-        if platform.system() != "Windows":
-            cmake.definitions["CMAKE_CXX_STANDARD"] = cmake.definitions["CONAN_CMAKE_CXX_STANDARD"]
-            cmake.definitions["CMAKE_CXX_EXTENSIONS"] = cmake.definitions["CONAN_CMAKE_CXX_EXTENSIONS"]
-            cmake.definitions["CTEST_TEST_TIMEOUT"] = 3000
+        cmake.definitions["CTEST_TEST_TIMEOUT"] = 3000
         cmake.configure()
 
         return cmake
