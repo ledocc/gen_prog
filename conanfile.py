@@ -1,4 +1,4 @@
-from conans import ConanFile, CMake, tools, errors
+from conans import ConanFile, CMake, tools, errors, RunEnvironment
 from conans.client.build.cppstd_flags import cppstd_from_settings, cppstd_default
 
 import os
@@ -41,7 +41,17 @@ class GenProgConan(ConanFile):
     def build(self):
         cmake = self._configure_cmake()
         cmake.build()
-        cmake.test(output_on_failure=True)
+
+        env_test = {
+            "CTEST_TEST_TIMEOUT": "3000",
+            "BOOST_TEST_BUILD_INFO": "1",
+            "BOOST_TEST_LOG_LEVEL": "message",
+            "BOOST_TEST_RANDOM": "1"
+        }
+        env_build = RunEnvironment(self).vars
+        with tools.environment_append(env_build):
+            with tools.environment_append(env_test):
+                cmake.test(output_on_failure=True)
 
     def package(self):
         cmake = self._configure_cmake()
@@ -52,7 +62,8 @@ class GenProgConan(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self, set_cmake_flags=True)
         cmake.verbose=True
-        cmake.definitions["CTEST_TEST_TIMEOUT"] = 3000
+
+        cmake.definitions["Boost_USE_STATIC_LIBS"] = "FALSE" if self.options["boost"].shared else "TRUE"
         cmake.configure()
 
         return cmake
