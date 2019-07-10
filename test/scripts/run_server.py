@@ -4,6 +4,7 @@
 
 import argparse
 import os
+import platform
 import subprocess
 import sys
 import time
@@ -23,12 +24,26 @@ parser.add_argument(
 args = parser.parse_args()
 
 
-server_process = subprocess.Popen(
-    [sys.executable, "-m", "http.server", args.port, "--bind", "127.0.0.1"],
-    stdin=subprocess.DEVNULL,
-    stdout=subprocess.DEVNULL,
-    stderr=subprocess.DEVNULL
+
+args=[sys.executable, "-m", "http.server", args.port, "--bind", "127.0.0.1"]
+
+if platform.system() == "Windows":
+    flags = 0
+    flags |= 0x08000000 # CREATE_NO_WINDOW
+
+    server_process = subprocess.Popen(
+        args,
+        close_fds=True,
+        creationflags=flags
     )
+else:
+    server_process = subprocess.Popen(
+        args,
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
+    )
+
 time.sleep(0.2)
 
 if server_process.poll() is not None:
