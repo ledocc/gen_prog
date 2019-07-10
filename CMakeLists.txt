@@ -63,15 +63,12 @@ cmut__config__option_include_what_you_use(OFF)
 
 cmut__config__default_build_type(Release)
 
-option(BUILD_DEPENDENCIES "use conan to install/build dependencies" OFF)
-option(GEN_PROG__FORCE_INCLUDE_CONAN_PATHS_CMAKE "Include \"conan_paths.cmake\" generated in binary directory by used with conan." OFF)
-
 
 
 ##--------------------------------------------------------------------------------------------------------------------##
 # install dependencies
 ##--------------------------------------------------------------------------------------------------------------------##
-include("${CMAKE_CURRENT_LIST_DIR}/cmake/build_dependencies.cmake")
+cmut__dependency__build_with_conan(DEFAULT_CXX_STANDARD 14)
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/dependencies/include_all.cmake")
 
 
