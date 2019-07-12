@@ -16,7 +16,7 @@ class GenProgConan(ConanFile):
 
     exports = "version.txt"
 
-    generators = (("cmake_paths"),("virtualrunenv"))
+    generators = (("cmake"),("cmake_paths"),("virtualrunenv"))
     scm = {
         "type": "git",
         "url": "https://github.com/ledocc/gen_prog",
