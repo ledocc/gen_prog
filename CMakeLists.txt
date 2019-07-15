@@ -17,7 +17,9 @@ cmake_minimum_required(VERSION 3.6.1)
 cmake_policy(VERSION 3.6)
 
 
+
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
+cmut__config__print_info()
 ########################################################################################################################
 ########################################################################################################################
 #
@@ -25,11 +27,13 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut.cmake")
 #
 ########################################################################################################################
 ########################################################################################################################
-project(gen_prog)
+cmut__project__read_version_file(version "${CMAKE_CURRENT_LIST_DIR}/version.txt")
+project(gen_prog VERSION ${version})
 cmut__config__log_project_begin()
-cmut__utils__set_project_version_from_file("${CMAKE_CURRENT_LIST_DIR}/version.txt")
-cmut__utils__get_build_time(${PROJECT_NAME}_BUILD_TIME)
 
+cmut__project__get_build_time(${PROJECT_NAME}_BUILD_TIME)
+cmut__project__get_git_revision_count(${PROJECT_NAME}_GIT_REVISION_COUNT)
+cmut__project__get_git_revision_hash(${PROJECT_NAME}_GIT_REVISION_HASH)
 
 
 ########################################################################################################################
@@ -43,11 +47,15 @@ list(INSERT CMAKE_MODULE_PATH 0
     ${CMAKE_HOME_DIRECTORY}/cmake
 )
 
-# cmut's module
-include( "${CMAKE_CURRENT_LIST_DIR}/cmake/tools/cmut/cmut_get_git_info.cmake" )
 
-
+##--------------------------------------------------------------------------------------------------------------------##
+# define build options
+##--------------------------------------------------------------------------------------------------------------------##
 cmut__config__option_developer_mode()
+cmut__config__option_build_documentation(OFF)
+cmut__config__option_build_examples(OFF)
+cmut__config__option_build_shared_libs(ON)
+include(CTest) # define BUILD_TESTING
 cmut__config__option_ccache(ON)
 cmut__config__option_clang_tidy(OFF)
 cmut__config__option_cppcheck(OFF)
@@ -57,48 +65,20 @@ cmut__config__default_build_type(Release)
 
 
 
-########################################################################################################################
-########################################################################################################################
-#
-# find dependencies
-#
-########################################################################################################################
-########################################################################################################################
+##--------------------------------------------------------------------------------------------------------------------##
+# install dependencies
+##--------------------------------------------------------------------------------------------------------------------##
+cmut__dependency__build_with_conan(DEFAULT_CXX_STANDARD 14)
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/dependencies/include_all.cmake")
 
 
-
-########################################################################################################################
-########################################################################################################################
-#
+##--------------------------------------------------------------------------------------------------------------------##
 # define build policies
-#
-########################################################################################################################
-########################################################################################################################
-
-set(CMAKE_DEBUG_POSTFIX "d")
-
-# define CMAKE_*_OUTPUT_DIRECTORY
-cmut__build__define_output_dir()
-
-# add option to enable build with all cpu's core when use Visual Studio or nmake
-cmut__build__msvc__option_use_mp()
-
-# enable C++14
-cmut__build__enable_cxx_standard(14)
-
-# enable warning
-cmut__build__enable_warning(AGGRESSIVE)
-
-# use RUNPATH instead of depreciated RPATH
-cmut__build__enable_runpath_link()
-
-cmut__build__set_cxx_visibility(hidden)
-
-if (MSVC)
-    add_definitions(-DUNICODE)
-endif()
-
+##--------------------------------------------------------------------------------------------------------------------##
+cmut__project__setup_project(
+    WARNING_AGGRESSIVE WARNING_AS_ERROR
+    WARNING_NO_ERROR deprecated deprecated-declarations
+    )
 
 
 ########################################################################################################################
@@ -111,11 +91,10 @@ endif()
 
 add_subdirectory(src)
 
-if(DOXYGEN_FOUND)
+if(BUILD_DOC)
 #    add_subdirectory(doc)
 endif()
 
-include(CTest)
 if(BUILD_TESTING)
     add_subdirectory(test)
 endif()
