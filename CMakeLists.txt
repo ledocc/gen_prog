@@ -62,23 +62,21 @@ cmut__config__option_cppcheck(OFF)
 cmut__config__option_include_what_you_use(OFF)
 
 cmut__config__default_build_type(Release)
+cmut__config__default_cxx_standard(14)
 
 
 
 ##--------------------------------------------------------------------------------------------------------------------##
 # install dependencies
 ##--------------------------------------------------------------------------------------------------------------------##
-cmut__dependency__build_with_conan(DEFAULT_CXX_STANDARD 14)
+cmut__dependency__build_with_conan( BUILD outdated )
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/dependencies/include_all.cmake")
 
 
 ##--------------------------------------------------------------------------------------------------------------------##
 # define build policies
 ##--------------------------------------------------------------------------------------------------------------------##
-cmut__project__setup_project(
-    WARNING_AGGRESSIVE WARNING_AS_ERROR
-    WARNING_NO_ERROR deprecated deprecated-declarations
-    )
+cmut__project__setup_project( WARNING_AGGRESSIVE )
 
 
 ########################################################################################################################
@@ -110,10 +108,9 @@ endif()
 ########################################################################################################################
 
 cmut__install__install_config_and_version()
-cmut__install__install_config_directory(
-    DIRECTORY       "cmake/dependencies"
-    DESTINATION     "dependencies/"
-)
+cmut__install__config_dependencies_directory( "cmake/dependencies" )
+
+cmut__install__component__make_targets(devel runtime)
 
 
 ########################################################################################################################
