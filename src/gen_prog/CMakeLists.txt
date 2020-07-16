@@ -13,12 +13,11 @@ cmut__project__setup_library( ${target}
     )
 
 set(${target}_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include/${target}")
+cmut__target__set_header_directories(${target} INTERFACE ${${target}_INCLUDE_DIR})
 
 #set(
 #    ${target}_HEADERS
 #    "${${target}_INCLUDE_DIR}/environ.hpp"
 #)
 
-cmut__install__install_target( ${target}
-    INCLUDE_DIRECTORIES ${${target}_INCLUDE_DIR}
-    )
+cmut__install__target( ${target})
