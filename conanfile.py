@@ -23,18 +23,13 @@ class GenProgConan(ConanFile):
         "revision": "auto",
         "submodule": "recursive"
     }
-    build_requires = (("cmake_installer/3.14.5@conan/stable"),
-                      ("ninja_installer/1.9.0@bincrafters/stable"))
-    requires = (("boost/1.70.0@conan/stable"),
-                ("turtle/master-1b5d8c8@ledocc/stable"))
+    build_requires = (("cmake/3.17.3@"),
+                      ("ninja/1.10.0@"))
+    requires = (("boost/1.73.0@"),
+                ("turtle/1.3.2@"))
 
     def configure(self):
-        cppstd = cppstd_from_settings(self.settings)
-        if cppstd == None:
-            cppstd = cppstd_default(self.settings.get_safe("compiler"), self.settings.get_safe("compiler.version"))
-        if cppstd not in [ None, "98", "gnu98", "11", "gnu11" ]:
-            return
-        raise errors.ConanInvalidConfiguration("Library gen_prog require C++ 14 or greater.")
+        tools.check_min_cppstd(self, 14)
 
     def build(self):
         cmake = self._configure_cmake()
