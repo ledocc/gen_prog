@@ -15,6 +15,7 @@ class GenProgConan(ConanFile):
     default_options = dict( { "shared":True } )
 
     exports = "version.txt"
+    no_copy_source = True
 
     generators = (("cmake"),("cmake_paths"),("virtualrunenv"))
     scm = {
