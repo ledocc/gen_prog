@@ -15,6 +15,7 @@ class GenProgConan(ConanFile):
     default_options = dict( { "shared":True } )
 
     exports = "version.txt"
+    no_copy_source = True
 
     generators = (("cmake"),("cmake_paths"),("virtualrunenv"))
     scm = {
@@ -23,9 +24,9 @@ class GenProgConan(ConanFile):
         "revision": "auto",
         "submodule": "recursive"
     }
-    build_requires = (("cmake/3.17.3@"),
-                      ("ninja/1.10.0@"))
-    requires = (("boost/1.73.0@"),
+    build_requires = (("cmake/3.18.4@"),
+                      ("ninja/1.10.1@"))
+    requires = (("boost/1.74.0@"),
                 ("turtle/1.3.2@"))
 
     def configure(self):
