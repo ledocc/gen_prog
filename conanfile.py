@@ -24,8 +24,6 @@ class GenProgConan(ConanFile):
         "revision": "auto",
         "submodule": "recursive"
     }
-    build_requires = (("cmake/3.18.4@"),
-                      ("ninja/1.10.1@"))
     requires = (("boost/1.74.0@"),
                 ("turtle/1.3.2@"))
 
@@ -59,8 +57,6 @@ class GenProgConan(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self, set_cmake_flags=True)
         cmake.verbose=True
-        cmake.generator="Ninja"
-
         cmake.definitions["Boost_USE_STATIC_LIBS"] = "FALSE" if self.options["boost"].shared else "TRUE"
         cmake.configure()
 
